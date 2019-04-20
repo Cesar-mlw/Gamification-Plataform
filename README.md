@@ -17,3 +17,6 @@ Front-end
 
 Full-stack
 - Cesar Moura Leite Westphal
+
+
+Developed with love and care at GameLab-ESPM
