@@ -3,14 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const debug = require("debug");
 const express = require("express");
 const path = require("path");
-const home_1 = require("./routes/home");
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(require("express-ejs-layouts"));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', home_1.default);
+app.use('/api/curso', require("./routes/api/curso"));
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
