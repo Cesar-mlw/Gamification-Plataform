@@ -8,6 +8,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(require("express-ejs-layouts"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/curso', require("./routes/api/curso"));
 // catch 404 and forward to error handler
