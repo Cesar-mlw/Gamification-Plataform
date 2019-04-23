@@ -43,10 +43,16 @@
     <Content Include="views\error.ejs">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\home.ejs">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\layout.ejs">
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\test.ejs">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\zz.ejs">
       <SubType>Code</SubType>
     </Content>
     <TypeScriptCompile Include="app.ts" />
@@ -57,7 +63,6 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="routes\home.ts" />
-    <TypeScriptCompile Include="routes\user.ts" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />

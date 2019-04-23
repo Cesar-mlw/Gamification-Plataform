@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', routes)
 app.use('/api/curso', require("./routes/api/curso"));
 
 // catch 404 and forward to error handler
