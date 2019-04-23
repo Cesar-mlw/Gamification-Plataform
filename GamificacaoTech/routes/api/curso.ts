@@ -31,4 +31,13 @@ router.post("/adicionar", (req: express.Request, res: express.Response) => {
         res.sendStatus(400) //Se o nome vier vazio, ele retorna 400 - Bad Request
     }
 });
+
+//Rota para alterar curso - o usuario devera fornecer o id e o novo nome do curso, a rota devera checar se o nome do id especificado é o mesmo, se sim a mudança não será feita. A mudança não será feita se ele especificar um id não existente
+//post
+
+//Rota para obter um curso especifico - usuario fornece um id através do URL localhost:1337/api/curso/obter?id=1 o rota deverá obter atravé do req.query[0]
+//get
+
+//rota para excluir um curso - usuario devera fornecer o id do mesmo jeito que a ultima rota
+//get
 export = router;
