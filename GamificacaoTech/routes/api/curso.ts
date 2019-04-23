@@ -31,4 +31,12 @@ router.post("/adicionar", (req: express.Request, res: express.Response) => {
         res.sendStatus(400) //Se o nome vier vazio, ele retorna 400 - Bad Request
     }
 });
+
+//Rota para alterar nome do curso
+//post
+
+//Rota para retornar um curso específico
+//get
+
+//excluir curso específico
 export = router;

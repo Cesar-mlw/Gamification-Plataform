@@ -52,9 +52,6 @@
     <Content Include="views\test.ejs">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="views\zz.ejs">
-      <SubType>Code</SubType>
-    </Content>
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="models\Curso.ts">
       <SubType>Code</SubType>
