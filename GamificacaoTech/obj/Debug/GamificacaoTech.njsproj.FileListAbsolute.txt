@@ -1,3 +1,6 @@
 C:\Users\Cesar M L Westphal\source\repos\GamificacaoTech\GamificacaoTech\obj\Debug\GamificacaoTech.njsprojAssemblyReference.cache
 C:\Users\Cesar M L Westphal\source\repos\GamificacaoTech\GamificacaoTech\obj\Debug\GamificacaoTech.njsproj.CoreCompileInputs.cache
 C:\Users\Cesar M L Westphal\source\repos\GamificacaoTech\GamificacaoTech\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\Cesar MLW\Desktop\Projects\Gamification-TECH\GamificacaoTech\obj\Debug\GamificacaoTech.njsprojAssemblyReference.cache
+C:\Users\Cesar MLW\Desktop\Projects\Gamification-TECH\GamificacaoTech\obj\Debug\GamificacaoTech.njsproj.CoreCompileInputs.cache
+C:\Users\Cesar MLW\Desktop\Projects\Gamification-TECH\GamificacaoTech\bin\Microsoft.NodejsTools.WebRole.dll
