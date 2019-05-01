@@ -40,6 +40,9 @@
     <Content Include="views\cabecalho.ejs">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\curso.ejs">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\error.ejs">
       <SubType>Code</SubType>
     </Content>
