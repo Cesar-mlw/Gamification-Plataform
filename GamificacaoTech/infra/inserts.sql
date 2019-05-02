@@ -31,17 +31,7 @@ insert into curso (nome_curso) values("PUBLICIDADE");
 insert into curso (nome_curso) values("DESIGN");
 insert into curso (nome_curso) values("TECH");
 
--- inserts USUARIO
-insert into usuario (ra_usuario, nome_usuario, semestre_usuario, email_usuario, dt_entrada_usuario, id_curso) values ("11122233", "Bernardo Favaretto", 8, "bfavaretto@acad.espm.br", "2019-11-02", 3);
 
--- inserts ITEM USUARIO
-insert into item_usuario (fk_item_id, fk_usuario_id, dt_semestre_item) values (1, 11122233, 8); 
-
--- inserts ACHIEVEMENT USUARIO
-insert into achievement_usuario (fk_achievement_id, fk_usuario_id, dt_semestre_achievement) values (1, 11122233, 8);
-
--- insert PROJETO
-insert into projeto (fk_ra_usuario, fk_id_tipo_projeto, fk_id_area, nome_projeto, dt_inicio_projeto, dt_final_projeto, terminado_projeto, local_projeto, habilidade_projeto, descricao_projeto) values (11122233, 2, 2, "Gamificação TECH", "2019-02-01", "2019-06-14", 0, "ESPM TECH", "[{'nome':'JavaScript'}]", "Projeto para a gamificacao do curso de tech");
 
 select * from projeto;
 

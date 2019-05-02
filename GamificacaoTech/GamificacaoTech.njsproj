@@ -34,6 +34,8 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="infra\criacao_banco.sql" />
+    <Content Include="infra\inserts.sql" />
     <Content Include="public\css\style.css">
       <SubType>Code</SubType>
     </Content>
@@ -50,21 +52,24 @@
       <SubType>Code</SubType>
     </Content>
     <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="models\Curso.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="routes\api\curso.ts">
+    <TypeScriptCompile Include="infra\sql.ts" />
+    <TypeScriptCompile Include="models\Usuario.ts" />
+    <TypeScriptCompile Include="routes\api\usuario.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="routes\home.ts" />
-    <TypeScriptCompile Include="routes\user.ts" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
+    <TypeScriptCompile Include="utils\geradorHash.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="infra\" />
     <Folder Include="models\" />
+    <Folder Include="utils\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />

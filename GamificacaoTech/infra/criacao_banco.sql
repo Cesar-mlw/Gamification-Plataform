@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Usuario` (
   `email_usuario` VARCHAR(45) NOT NULL,
   `dt_entrada_usuario` DATE NOT NULL,
   `id_curso` INT NOT NULL,
+  `senha_usuario` VARCHAR(150) NOT NULL,
   PRIMARY KEY (`ra_usuario`),
   UNIQUE INDEX `ra_usuario_UNIQUE` (`ra_usuario` ASC),
   INDEX `fk_id_curso_usuario_idx` (`id_curso` ASC),

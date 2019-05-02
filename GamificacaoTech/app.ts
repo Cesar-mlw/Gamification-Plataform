@@ -2,7 +2,6 @@
 import express = require('express');
 import path = require('path');
 
-import routes from './routes/home';
 
 var app = express();
 
@@ -15,37 +14,30 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/curso', require("./routes/api/curso"));
+app.use("/api/usuario", require("./routes/api/usuario"))
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err['status'] = 404;
+app.use((req: express.Request, res: express.Response, next) => {
+    let err = new Error("Não encontrado");
+    err["status"] = 404;
+
+    // Executa o próximo tratador na sequência (que no nosso caso
+    // será um dos dois tratadores abaixo)
     next(err);
 });
 
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use((err: any, req, res, next) => {
-        res.status(err['status'] || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use((err: any, req, res, next) => {
+// Registra os tratadores de erro
+app.use((err: any, req: express.Request, res: express.Response, next) => {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render("error", {
+        layout: "layout",
         message: err.message,
-        error: {}
+        // Como é um ambiente de desenvolvimento, deixa o objeto do erro
+        // ir para a página, que possivelmente exibirá suas informações
+        error: err
     });
+
+    // Não estamos chamando next(err) aqui porque não temos mais
+    // tratadores abaixo desse
 });
 
 app.set('port', process.env.PORT || 3000);

@@ -11,33 +11,26 @@ app.use(require("express-ejs-layouts"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/api/curso', require("./routes/api/curso"));
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err['status'] = 404;
+app.use("/api/usuario", require("./routes/api/usuario"));
+app.use((req, res, next) => {
+    let err = new Error("Não encontrado");
+    err["status"] = 404;
+    // Executa o próximo tratador na sequência (que no nosso caso
+    // será um dos dois tratadores abaixo)
     next(err);
 });
-// error handlers
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use((err, req, res, next) => {
-        res.status(err['status'] || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
-// production error handler
-// no stacktraces leaked to user
+// Registra os tratadores de erro
 app.use((err, req, res, next) => {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render("error", {
+        layout: "layout",
         message: err.message,
-        error: {}
+        // Como é um ambiente de desenvolvimento, deixa o objeto do erro
+        // ir para a página, que possivelmente exibirá suas informações
+        error: err
     });
+    // Não estamos chamando next(err) aqui porque não temos mais
+    // tratadores abaixo desse
 });
 app.set('port', process.env.PORT || 3000);
 var server = app.listen(app.get('port'), function () {
