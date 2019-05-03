@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const debug = require("debug");
 const express = require("express");
 const path = require("path");
-const home_1 = require("./routes/home");
+const home_1 = require("./routes/home"); //localização do arquivo com as rotas base
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -12,7 +12,8 @@ app.use(require("express-ejs-layouts"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', home_1.default);
+app.use('/public', express.static(path.resolve('./public'))); //<--new line added
+app.use('/', home_1.default); //rota base que aponta para o arquivo dentro da pasta routes com outras rotas
 app.use('/api/curso', require("./routes/api/curso"));
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

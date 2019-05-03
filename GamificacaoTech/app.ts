@@ -14,6 +14,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.resolve('./public'))); //<--new line added
+
 
 app.use('/', routes)//rota base que aponta para o arquivo dentro da pasta routes com outras rotas
 app.use('/api/curso', require("./routes/api/curso"));
