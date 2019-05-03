@@ -25,7 +25,27 @@ router.get("/obter", wrap(async (req: express.Request, res: express.Response) =>
 
 //criar rota delete
 
+router.post("/deletar", wrap(async (req: express.Request, res: express.Response) => {
+    let ra = req.body.ra
+    let u = await Usuario.deletar(ra)
+    if (u == false) {
+
+        res.json("Usuário não encontrado")
+    }
+
+    else {
+        res.json("Usuário deletado")
+    }
+}))
+
 //criar rota listar
+
+router.get("/listar", wrap(async (req: express.Request, res: express.Response) => {
+    let lista = req.query.lista
+    //let u = await Usuario.listar(lista)
+
+    res.json(lista)
+}))
 
 //efetuar o Login
 

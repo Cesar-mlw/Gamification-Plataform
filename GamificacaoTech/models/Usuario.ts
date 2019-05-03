@@ -1,5 +1,6 @@
 ﻿import Sql = require("../infra/sql")
 import GeradorHash = require("../utils/geradorHash")
+import { type } from "os";
 
 export = class Usuario {
 
@@ -9,7 +10,7 @@ export = class Usuario {
     public curso: number;
     public semestre: number;
     public email: string;
-    public dt_entrada_usuario: Date;
+    public dt_entrada_usuario: string;
     public senha: string;
 
     public static validar(u: Usuario): string {

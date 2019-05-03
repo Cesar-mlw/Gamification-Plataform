@@ -16,6 +16,10 @@ module.exports = class Usuario {
     static async criar(u) {
         let res;
         u.senha = await GeradorHash.criarHash(u.senha);
+        //let month = u.dt_entrada_usuario.getMonth()
+        //let year = u.dt_entrada_usuario.getFullYear()
+        //let date = u.dt_entrada_usuario.getDate()
+        //let dt_entrada_usuario:string = (year.toString() + "-" + month.toString() + "-" + date.toString())
         if ((res = Usuario.validar(u)))
             return res;
         await Sql.conectar(async (sql) => {
