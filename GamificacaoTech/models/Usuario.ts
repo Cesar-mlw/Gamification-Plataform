@@ -22,10 +22,10 @@ export = class Usuario {
         let lista: Usuario[] = null;
 
         await Sql.conectar(async (sql: Sql) => {
-            lista = await sql.query("select ra_usuario, nome_usuario, curso_usuario, fk_id_usuario, semestre_usuario, dt_entrada_usuario, email_usuario from usuario order by asc") as Usuario[]
+            lista = await sql.query("select u.ra_usuario, u.nome_usuario, u.semestre_usuario, u.email_usuario, u.dt_entrada_usuario, c.nome_curso from usuario u, curso c where u.id_curso = c.id_curso order by ra_usuario") as Usuario[]
         })
-
-        return (lista || [])
+        console.log(lista)
+        return lista
     }
 
     public static async criar(u: Usuario): Promise<string> { //Dados a serem passados - ra: number / nome: string / curso: number / semestre: number / email: string / dt_entrada_usuario

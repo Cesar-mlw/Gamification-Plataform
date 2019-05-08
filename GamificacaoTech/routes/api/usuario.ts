@@ -41,14 +41,26 @@ router.post("/deletar", wrap(async (req: express.Request, res: express.Response)
 //criar rota listar
 
 router.get("/listar", wrap(async (req: express.Request, res: express.Response) => {
-    let lista = req.query.lista
-    //let u = await Usuario.listar(lista)
-
+    let lista = await Usuario.listar()
+    
     res.json(lista)
 }))
 
 //efetuar o Login
 
+router.post("/efetuarLogin", wrap(async (req: express.Request, res: express.Response) => {
+    let ra = req.body.ra
+    let senha = req.body.senha
+
+    let resp = await Usuario.efetuarLogin(ra, senha)
+
+    if (resp) {
+        res.json("LOGADO")
+    }
+    else {
+        res.json("TA ERRADO SEU MERDA")
+    }
+}))
 
 
 export = router;

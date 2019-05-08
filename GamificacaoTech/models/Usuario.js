@@ -9,17 +9,14 @@ module.exports = class Usuario {
     static async listar() {
         let lista = null;
         await Sql.conectar(async (sql) => {
-            lista = await sql.query("select ra_usuario, nome_usuario, curso_usuario, fk_id_usuario, semestre_usuario, dt_entrada_usuario, email_usuario from usuario order by asc");
+            lista = await sql.query("select u.ra_usuario, u.nome_usuario, u.semestre_usuario, u.email_usuario, u.dt_entrada_usuario, c.nome_curso from usuario u, curso c where u.id_curso = c.id_curso order by ra_usuario");
         });
-        return (lista || []);
+        console.log(lista);
+        return lista;
     }
     static async criar(u) {
         let res;
         u.senha = await GeradorHash.criarHash(u.senha);
-        //let month = u.dt_entrada_usuario.getMonth()
-        //let year = u.dt_entrada_usuario.getFullYear()
-        //let date = u.dt_entrada_usuario.getDate()
-        //let dt_entrada_usuario:string = (year.toString() + "-" + month.toString() + "-" + date.toString())
         if ((res = Usuario.validar(u)))
             return res;
         await Sql.conectar(async (sql) => {
