@@ -1,9 +1,9 @@
 ﻿-- inserts table AREA
-insert into area (nome_area, integrantes_area, cor_area) values("Business Intelligence", 0, "#1F0D2D");
-insert into area (nome_area, integrantes_area, cor_area) values("Games", 0, "#1FCD2D");
-insert into area (nome_area, integrantes_area, cor_area) values("Development", 0, "#1FCD8D");
-insert into area (nome_area, integrantes_area, cor_area) values("Inovação Tecnológica", 0, "#1FCDBD");
-insert into area (nome_area, integrantes_area, cor_area) values("misc", 0, "PALETA DE TECH");
+insert into area (nome_area) values("Business Intelligence");
+insert into area (nome_area) values("Games");
+insert into area (nome_area) values("Development");
+insert into area (nome_area) values("Inovação Tecnológica");
+insert into area (nome_area) values("misc");
 
 -- inserts table ACHIEVEMENTS
 insert into achievement (nome_achievement, criterio_achievement) values("ACHIEVEMENT TESTE", "DONE SOME WEIRD SHIT ON THE PLATFORM LIKE A BACKFLIP OR SOMETHING WHOLESOME");
@@ -17,11 +17,19 @@ insert into tipo_informacao (nome_tipo_informacao) values ("infoArea");
 insert into tipo_informacao (nome_tipo_informacao) values ("infoMisc");
 
 -- inserts TIPO PROJETO
-insert into tipo_projeto (nome_tipo_projeto) values ("foraESPM");
-insert into tipo_projeto (nome_tipo_projeto) values ("dentroESPM");
-insert into tipo_projeto (nome_tipo_projeto) values ("estagio");
-insert into tipo_projeto (nome_tipo_projeto) values ("aulaTECH");
-insert into tipo_projeto (nome_tipo_projeto) values ("cursoOnline");
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("NAEC", 100.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Biblioteca", 50.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Matéria", 50.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Trabalhos", 100.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Palestras", 15.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Entidades", 300.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("PIC", 500.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Eletivas", 50.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Estágio", 500.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Cursos Extras", 100.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Trabalho Voluntátio", 100.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Conclusão de Semestre", 50.00);
+
 
 -- inserts INFORMACAO
 insert into informacao (fk_id_tipo_informacao, nome_informacao, texto_informacao, local_informacao, fk_id_area) values (1, "Onde fica a Secretaria?", "A secretaria fica no predio da AA", "Unidade Alvaro Alvim", 3);
