@@ -1,6 +1,5 @@
 ﻿import Sql = require("../infra/sql")
 import GeradorHash = require("../utils/geradorHash")
-import { type } from "os";
 
 export = class Usuario {
 
@@ -24,7 +23,6 @@ export = class Usuario {
         await Sql.conectar(async (sql: Sql) => {
             lista = await sql.query("select u.ra_usuario, u.nome_usuario, u.semestre_usuario, u.email_usuario, u.dt_entrada_usuario, c.nome_curso from usuario u, curso c where u.id_curso = c.id_curso order by ra_usuario") as Usuario[]
         })
-        console.log(lista)
         return lista
     }
 
