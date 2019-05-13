@@ -11,7 +11,6 @@ module.exports = class Usuario {
         await Sql.conectar(async (sql) => {
             lista = await sql.query("select u.ra_usuario, u.nome_usuario, u.semestre_usuario, u.email_usuario, u.dt_entrada_usuario, c.nome_curso from usuario u, curso c where u.id_curso = c.id_curso order by ra_usuario");
         });
-        console.log(lista);
         return lista;
     }
     static async criar(u) {

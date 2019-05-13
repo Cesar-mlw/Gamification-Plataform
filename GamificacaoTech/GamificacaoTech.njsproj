@@ -53,6 +53,7 @@
     </Content>
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="infra\sql.ts" />
+    <TypeScriptCompile Include="models\Projeto.ts" />
     <TypeScriptCompile Include="models\Usuario.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts">
       <SubType>Code</SubType>

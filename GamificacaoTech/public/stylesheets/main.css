@@ -1,8 +1,89 @@
 ﻿body {
-    padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: #47996E;
 }
 
-a {
-    color: #00B7FF;
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+.mainPageHolder {
+    border: solid 2px black;
+    width: 25vw;
+    height: 25vh;
+}
+
+.armario {
+    position: absolute;
+    bottom: 0px;
+    width: 160px;
+    height: 350px;
+    left: 100px;
+}
+
+.mesa {
+    position: absolute;
+    bottom: 0;
+    left: 400px;
+    width: 330px;
+    height: 200px;
+}
+
+.pc {
+    position: absolute;
+    bottom: 200px;
+    left: 540px;
+    width: 190px;
+    height: 110px;
+}
+
+
+.janela {
+    position: absolute;
+    bottom: 380px;
+    left: 290px;
+    width: 150px;
+    height: 150px;
+}
+
+
+.prateleira1 {
+    position: absolute;
+    bottom: 390px;
+    left: 500px;
+    width: 230px;
+    height: 20px;
+}
+
+.prateleira2 {
+    position: absolute;
+    bottom: 470px;
+    left: 800px;
+    width: 230px;
+    height: 20px;
+}
+
+.disqueteira1 {
+    position: absolute;
+    bottom: 490px;
+    left: 820px;
+    width: 90px;
+    height: 80px;
+}
+
+.disqueteira2 {
+    position: absolute;
+    bottom: 410px;
+    left: 520px;
+    width: 90px;
+    height: 80px;
+}
+
+.disqueteira3 {
+    position: absolute;
+    bottom: 410px;
+    left: 640px;
+    width: 90px;
+    height: 80px;
 }
