@@ -14,7 +14,8 @@
     "debug": "^2.2.0",
     "ejs": "^2.6.1",
     "express": "^4.14.0",
-    "express-ejs-layouts": "^2.5.0"
+    "express-ejs-layouts": "^2.5.0",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "@types/debug": "0.0.30",

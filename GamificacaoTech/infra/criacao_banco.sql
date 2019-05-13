@@ -46,12 +46,54 @@ CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Usuario` (
   `email_usuario` VARCHAR(45) NOT NULL,
   `dt_entrada_usuario` DATE NOT NULL,
   `id_curso` INT NOT NULL,
+  `senha_usuario` VARCHAR(150) NOT NULL,
   PRIMARY KEY (`ra_usuario`),
   UNIQUE INDEX `ra_usuario_UNIQUE` (`ra_usuario` ASC),
   INDEX `fk_id_curso_usuario_idx` (`id_curso` ASC),
   CONSTRAINT `fk_id_curso_usuario`
     FOREIGN KEY (`id_curso`)
     REFERENCES `gamificacaoBanco`.`Curso` (`id_curso`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `gamificacaoBanco`.`Usuario`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gamificacaoBanco`.`Habilidade` ;
+
+CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Habilidade` (
+  `id_habilidade` INT NOT NULL,
+  `nome_habilidade` VARCHAR(45) NOT NULL,
+  `fk_id_area_habilidade` INT NOT NULL,
+  PRIMARY KEY (`id_habilidade`),
+  UNIQUE INDEX `id_habilidade_UNIQUE` (`id_habilidade` ASC),
+  CONSTRAINT `fk_id_area_habilidade`
+    FOREIGN KEY (`fk_id_area_habilidade`)
+    REFERENCES `gamificacaoBanco`.`Area` (`id_area`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `gamificacaoBanco`.`Usuario`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gamificacaoBanco`.`Projeto_Habilidade` ;
+
+CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Projeto_Habilidade` (
+  `id_projeto_habilidade` INT NOT NULL,
+  `id_projeto_projeto_habilidade` INT NOT NULL,
+  `id_habilidade_projeto_habilidade` INT NOT NULL,
+  PRIMARY KEY (`id_projeto_habilidade`),
+  UNIQUE INDEX `id_projeto_habilidade_UNIQUE` (`id_projeto_habilidade` ASC),
+  CONSTRAINT `fk_id_projeto_projeto_habilidade`
+    FOREIGN KEY (`id_projeto_projeto_habilidade`)
+    REFERENCES `gamificacaoBanco`.`Projeto` (`id_projeto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_id_habilidade_projeto_habilidade`
+    FOREIGN KEY (`id_habilidade_projeto_habilidade`)
+    REFERENCES `gamificacaoBanco`.`Habilidade` (`id_habilidade`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -65,6 +107,7 @@ DROP TABLE IF EXISTS `gamificacaoBanco`.`Tipo_projeto` ;
 CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Tipo_projeto` (
   `id_tipo_projeto` INT NOT NULL AUTO_INCREMENT,
   `nome_tipo_projeto` VARCHAR(45) NOT NULL,
+  `pontos_projeto` FLOAT NOT NULL,
   PRIMARY KEY (`id_tipo_projeto`))
 ENGINE = InnoDB;
 
@@ -77,8 +120,6 @@ DROP TABLE IF EXISTS `gamificacaoBanco`.`Area` ;
 CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Area` (
   `id_area` INT NOT NULL AUTO_INCREMENT,
   `nome_area` VARCHAR(45) NOT NULL,
-  `integrantes_area` INT NOT NULL,
-  `cor_area` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_area`))
 ENGINE = InnoDB;
 
@@ -92,26 +133,17 @@ CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Projeto` (
   `id_projeto` INT NOT NULL AUTO_INCREMENT,
   `fk_ra_usuario` INT NOT NULL,
   `fk_id_tipo_projeto` INT NOT NULL,
-  `fk_id_area` INT NOT NULL,
   `nome_projeto` VARCHAR(45) NOT NULL,
-  `dt_inicio_projeto` DATE NOT NULL,
-  `dt_final_projeto` DATE NOT NULL,
   `terminado_projeto` TINYINT NOT NULL,
   `local_projeto` VARCHAR(45) NOT NULL,
-  `habilidade_projeto` VARCHAR(250) NOT NULL,
   `descricao_projeto` VARCHAR(450) NOT NULL,
+  `pontos_extra` FLOAT NOT NULL,
   PRIMARY KEY (`id_projeto`),
   INDEX `fk_id_tipo_projeto_idx` (`fk_id_tipo_projeto` ASC),
-  INDEX `fk_id_area_idx` (`fk_id_area` ASC),
   INDEX `fk_ra_usuario_idx` (`fk_ra_usuario` ASC),
-  CONSTRAINT `fk_id_tipo_projeto`
+  CONSTRAINT `fk_id_tipo_projeto_projeto`
     FOREIGN KEY (`fk_id_tipo_projeto`)
     REFERENCES `gamificacaoBanco`.`Tipo_projeto` (`id_tipo_projeto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_id_area_projeto`
-    FOREIGN KEY (`fk_id_area`)
-    REFERENCES `gamificacaoBanco`.`Area` (`id_area`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_ra_usuario_projeto`

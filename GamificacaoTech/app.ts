@@ -2,7 +2,6 @@
 import express = require('express');
 import path = require('path');
 
-import routes from './routes/home';//localização do arquivo com as rotas base
 
 var app = express();
 
@@ -17,8 +16,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(path.resolve('./public'))); //<--new line added
 
 
-app.use('/', routes)//rota base que aponta para o arquivo dentro da pasta routes com outras rotas
-app.use('/api/curso', require("./routes/api/curso"));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use("/api/usuario", require("./routes/api/usuario"))
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

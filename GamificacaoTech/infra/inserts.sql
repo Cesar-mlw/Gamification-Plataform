@@ -1,9 +1,9 @@
 -- inserts table AREA
-insert into area (nome_area, integrantes_area, cor_area) values("Business Intelligence", 0, "#1F0D2D");
-insert into area (nome_area, integrantes_area, cor_area) values("Games", 0, "#1FCD2D");
-insert into area (nome_area, integrantes_area, cor_area) values("Development", 0, "#1FCD8D");
-insert into area (nome_area, integrantes_area, cor_area) values("Inovação Tecnológica", 0, "#1FCDBD");
-insert into area (nome_area, integrantes_area, cor_area) values("misc", 0, "PALETA DE TECH");
+insert into area (nome_area) values("Business Intelligence");
+insert into area (nome_area) values("Games");
+insert into area (nome_area) values("Development");
+insert into area (nome_area) values("Inovação Tecnológica");
+insert into area (nome_area) values("misc");
 
 -- inserts table ACHIEVEMENTS
 insert into achievement (nome_achievement, criterio_achievement) values("ACHIEVEMENT TESTE", "DONE SOME WEIRD SHIT ON THE PLATFORM LIKE A BACKFLIP OR SOMETHING WHOLESOME");
@@ -17,11 +17,19 @@ insert into tipo_informacao (nome_tipo_informacao) values ("infoArea");
 insert into tipo_informacao (nome_tipo_informacao) values ("infoMisc");
 
 -- inserts TIPO PROJETO
-insert into tipo_projeto (nome_tipo_projeto) values ("foraESPM");
-insert into tipo_projeto (nome_tipo_projeto) values ("dentroESPM");
-insert into tipo_projeto (nome_tipo_projeto) values ("estagio");
-insert into tipo_projeto (nome_tipo_projeto) values ("aulaTECH");
-insert into tipo_projeto (nome_tipo_projeto) values ("cursoOnline");
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("NAEC", 100.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Biblioteca", 50.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Matéria", 50.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Trabalhos", 100.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Palestras", 15.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Entidades", 300.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("PIC", 500.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Eletivas", 50.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Estágio", 500.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Cursos Extras", 100.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Trabalho Voluntátio", 100.00);
+insert into tipo_projeto (nome_tipo_projeto, pontos_projeto) values ("Conclusão de Semestre", 50.00);
+
 
 -- inserts INFORMACAO
 insert into informacao (fk_id_tipo_informacao, nome_informacao, texto_informacao, local_informacao, fk_id_area) values (1, "Onde fica a Secretaria?", "A secretaria fica no predio da AA", "Unidade Alvaro Alvim", 3);
@@ -31,17 +39,7 @@ insert into curso (nome_curso) values("PUBLICIDADE");
 insert into curso (nome_curso) values("DESIGN");
 insert into curso (nome_curso) values("TECH");
 
--- inserts USUARIO
-insert into usuario (ra_usuario, nome_usuario, semestre_usuario, email_usuario, dt_entrada_usuario, id_curso) values ("11122233", "Bernardo Favaretto", 8, "bfavaretto@acad.espm.br", "2019-11-02", 3);
 
--- inserts ITEM USUARIO
-insert into item_usuario (fk_item_id, fk_usuario_id, dt_semestre_item) values (1, 11122233, 8); 
-
--- inserts ACHIEVEMENT USUARIO
-insert into achievement_usuario (fk_achievement_id, fk_usuario_id, dt_semestre_achievement) values (1, 11122233, 8);
-
--- insert PROJETO
-insert into projeto (fk_ra_usuario, fk_id_tipo_projeto, fk_id_area, nome_projeto, dt_inicio_projeto, dt_final_projeto, terminado_projeto, local_projeto, habilidade_projeto, descricao_projeto) values (11122233, 2, 2, "Gamificação TECH", "2019-02-01", "2019-06-14", 0, "ESPM TECH", "[{'nome':'JavaScript'}]", "Projeto para a gamificacao do curso de tech");
 
 select * from projeto;
 
