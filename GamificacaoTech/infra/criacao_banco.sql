@@ -44,6 +44,11 @@ CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Usuario` (
   `nome_usuario` VARCHAR(45) NOT NULL,
   `semestre_usuario` INT NOT NULL,
   `email_usuario` VARCHAR(45) NOT NULL,
+  `pontos_bi` FLOAT NOT NULL,
+  `pontos_dev` FLOAT NOT NULL,
+  `pontos_games` FLOAT NOT NULL,
+  `pontos_inov` FLOAT NOT NULL,
+  `pontos_outros` FLOAT NOT NULL,
   `dt_entrada_usuario` DATE NOT NULL,
   `id_curso` INT NOT NULL,
   `senha_usuario` VARCHAR(150) NOT NULL,
@@ -133,6 +138,7 @@ CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Projeto` (
   `id_projeto` INT NOT NULL AUTO_INCREMENT,
   `fk_ra_usuario` INT NOT NULL,
   `fk_id_tipo_projeto` INT NOT NULL,
+  `fk_id_area` INT NOT NULL,
   `nome_projeto` VARCHAR(45) NOT NULL,
   `terminado_projeto` TINYINT NOT NULL,
   `local_projeto` VARCHAR(45) NOT NULL,
@@ -141,6 +147,7 @@ CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Projeto` (
   PRIMARY KEY (`id_projeto`),
   INDEX `fk_id_tipo_projeto_idx` (`fk_id_tipo_projeto` ASC),
   INDEX `fk_ra_usuario_idx` (`fk_ra_usuario` ASC),
+  INDEX `fk_id_area_idx` (`fk_id_area` ASC),
   CONSTRAINT `fk_id_tipo_projeto_projeto`
     FOREIGN KEY (`fk_id_tipo_projeto`)
     REFERENCES `gamificacaoBanco`.`Tipo_projeto` (`id_tipo_projeto`)
@@ -149,6 +156,11 @@ CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Projeto` (
   CONSTRAINT `fk_ra_usuario_projeto`
     FOREIGN KEY (`fk_ra_usuario`)
     REFERENCES `gamificacaoBanco`.`Usuario` (`ra_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_id_area_projeto`
+    FOREIGN KEY (`fk_id_area`)
+    REFERENCES `gamificacaoBanco`.`Area` (`id_area`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

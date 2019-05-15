@@ -6,7 +6,7 @@ C:\Users\Cesar MLW\Desktop\Projects\Gamification-TECH\GamificacaoTech\obj\Debug\
 C:\Users\Cesar MLW\Desktop\Projects\Gamification-TECH\GamificacaoTech\bin\Microsoft.NodejsTools.WebRole.dll
 C:\Users\Cesar M L Westphal\source\repos\gamificacaoBack\GamificacaoTech\obj\Debug\GamificacaoTech.njsproj.CoreCompileInputs.cache
 C:\Users\Cesar M L Westphal\source\repos\gamificacaoBack\GamificacaoTech\bin\Microsoft.NodejsTools.WebRole.dll
-C:\Users\Cesar M L Westphal\source\repos\gamificacaoBack\GamificacaoTech\obj\Debug\GamificacaoTech.njsprojAssemblyReference.cache
 C:\Users\sophia.araujo\Desktop\Sophia\GameLab\Gamificação\GamificacaoTech\obj\Debug\GamificacaoTech.njsprojAssemblyReference.cache
 C:\Users\sophia.araujo\Desktop\Sophia\GameLab\Gamificação\GamificacaoTech\obj\Debug\GamificacaoTech.njsproj.CoreCompileInputs.cache
 C:\Users\sophia.araujo\Desktop\Sophia\GameLab\Gamificação\GamificacaoTech\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\Cesar M L Westphal\source\repos\gamificacaoBack\GamificacaoTech\obj\Debug\GamificacaoTech.njsprojAssemblyReference.cache

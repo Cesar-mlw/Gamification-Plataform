@@ -1,7 +1,6 @@
 ﻿import express = require("express")
 import wrap = require("express-async-error-wrapper");
 import Usuario = require("../../models/Usuario");
-
 const router = express.Router()
 
 router.post("/criar", wrap(async (req: express.Request, res: express.Response) => {

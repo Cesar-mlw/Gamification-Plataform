@@ -2,7 +2,6 @@
 import express = require('express');
 import path = require('path');
 
-
 var app = express();
 
 // view engine setup
@@ -13,12 +12,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/public', express.static(path.resolve('./public'))); //<--new line added
+app.use('/public', express.static(path.resolve('./public'))); 
 
+app.use('/', require("./routes/home"))
 app.use("/api/usuario", require("./routes/api/usuario"))
 
-
-
+// catch 404 and forward to error handler
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
@@ -54,5 +53,4 @@ app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function () {
     debug('Express server listening on port ' + server.address().port);
-});
 });
