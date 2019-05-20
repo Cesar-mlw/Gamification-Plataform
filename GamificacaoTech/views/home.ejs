@@ -1,15 +1,22 @@
-﻿<div id="mainPageHolder" class="mainPageHolder">
-    <p><%=titulo%></p>
-    <p>This website is under construction. If you're a front end folk, please direct yourself to one of the routes created on, either the app.ts file or some file under the routes folder</p>
-</div>
+﻿<img class="background" src="images/background.png">
+    <div class="furniture">
+        <img class="desk" src="images/desk.png">
+        <img class="computer" src="images/computer.png">
+        <img class="wardrobe" src="images/wardrobe.png">
+        <img class="board" src="images/board.png">
+        <img class="shelf" src="images/shelf.png">
+    </div>
+    <div id="menu">
+        <img class="photo" src="images/photo.png">
+        <button class="botoes" id="registro" onclick="registroRedirect()">Registro</button>
+        <button class="botoes" id="portfolio">Portfólio</button>
+        <button class="botoes" id="curriculo">Currículo</button>
+        <button class="botoes" id="loja">Loja</button>
+    </div>
 
-
-<img class="pc" src="/images/pc.png"/>
-<img class="mesa" src="/images/mesa.png"/>
-<img class="armario" src="/images/armario.png"/>
-<img class="disqueteira1" src="/images/disqueteira.png"/>
-<img class="disqueteira2" src="/images/disqueteira.png"/>
-<img class="disqueteira3" src="/images/disqueteira.png"/>
-<img class="janela" src="/images/janela.png"/>
-<img class="prateleira1" src="/images/prateleira.png"/>
-<img class="prateleira2" src="/images/prateleira.png"/>
+<%- contentFor("scripts")%>
+<script type="text/javascript">
+    function registroRedirect() {
+        window.location.replace("/test")
+    }
+</script>

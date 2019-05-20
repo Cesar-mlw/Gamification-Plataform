@@ -1,89 +1,135 @@
-﻿body {
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background: #47996E;
-}
-
-html {
-    width: 100vw;
-    height: 100vh;
-}
-
-.mainPageHolder {
-    border: solid 2px black;
-    width: 25vw;
-    height: 25vh;
-}
-
-.armario {
-    position: absolute;
-    bottom: 0px;
-    width: 160px;
-    height: 350px;
-    left: 100px;
-}
-
-.mesa {
-    position: absolute;
+﻿.background {
+    left: 0;
     bottom: 0;
-    left: 400px;
-    width: 330px;
-    height: 200px;
+    top: 0;
+    z-index: 0;
+    height: 600px;
 }
 
-.pc {
+.furniture {
+    z-index: 1;
+}
+
+.desk {
     position: absolute;
-    bottom: 200px;
-    left: 540px;
-    width: 190px;
+    bottom: 20px;
+    left: 670px;
+    height: 120px;
+}
+
+.board {
+    position: absolute;
+    bottom: 320px;
+    left: 350px;
+    height: 131px;
+}
+
+.computer {
+    position: absolute;
+    bottom: 140px;
+    left: 750px;
     height: 110px;
 }
 
-
-.janela {
+.photo {
     position: absolute;
-    bottom: 380px;
-    left: 290px;
-    width: 150px;
-    height: 150px;
+    bottom: 450px;
+    left: 40px;
+    height: 140px;
 }
 
-
-.prateleira1 {
+.botoes {
     position: absolute;
-    bottom: 390px;
-    left: 500px;
-    width: 230px;
-    height: 20px;
+    background: #F2D630;
+    font: 12px/30px Georgia, serif;
+    width: 100px;
+    height: 40px;
+    font-size: 17px;
+    color: #fff;
+    bottom: 530px;
+    border: none;
+    float: left;
 }
 
-.prateleira2 {
-    position: absolute;
-    bottom: 470px;
-    left: 800px;
-    width: 230px;
-    height: 20px;
+    .botoes:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+#registro {
+    left: 220px;
 }
 
-.disqueteira1 {
-    position: absolute;
-    bottom: 490px;
-    left: 820px;
-    width: 90px;
-    height: 80px;
+#portfolio {
+    left: 340px;
 }
 
-.disqueteira2 {
-    position: absolute;
-    bottom: 410px;
-    left: 520px;
-    width: 90px;
-    height: 80px;
+#curriculo {
+    left: 460px;
 }
 
-.disqueteira3 {
-    position: absolute;
-    bottom: 410px;
-    left: 640px;
-    width: 90px;
-    height: 80px;
+#loja {
+    left: 580px;
 }
+
+/*.descricao_pc {
+    position: absolute;
+    bottom: 37.2vh;
+    right: 28vw;
+    height: 43vh;
+    width: 20vw;
+    opacity: 0.0;
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    z-index: 0;
+}
+
+.pc:hover ~ .descricao_pc{
+    opacity: 1.0;
+} */
+
+.wardrobe {
+    position: absolute;
+    bottom: 20px;
+    left: 430px;
+    height: 250px;
+}
+
+/*.armario:hover ~ .descricao_armario {
+    opacity: 1.0;
+}
+
+.descricao_armario {
+    position: absolute;
+    bottom: 62.5vh;
+    right: 20vw;
+    height: 30vh;
+    opacity: 0.0;
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    z-index: 0;
+} */
+
+.shelf {
+    position: absolute;
+    bottom: 420px;
+    left: 700px;
+    width: 300px;
+}
+
+/*.descricao_prateleira {
+    position: absolute;
+    bottom: 67.5vh;
+    left: 25vw;
+    height: 30vh;
+    opacity: 0.0;
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    z-index: 0;
+}
+
+.prateleiras:hover ~ .descricao_prateleira {
+    opacity: 1.0;
+} */
