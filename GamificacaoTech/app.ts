@@ -16,6 +16,7 @@ app.use('/public', express.static(path.resolve('./public')));
 
 app.use('/', require("./routes/home"))
 app.use("/api/usuario", require("./routes/api/usuario"))
+app.use("/api/projeto", require("./routes/api/projeto"))
 
 // catch 404 and forward to error handler
 // catch 404 and forward to error handler

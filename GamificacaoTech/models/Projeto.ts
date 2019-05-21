@@ -4,11 +4,11 @@ import GeradorHash = require("../utils/geradorHash")
 
 export = class Projeto {
 
-    public idProjeto: number;
     public ra: number;
+    public idArea: number;
     public idTipoProjeto: number;
     public nome: string;
-    public terminado: boolean;
+    public terminado: number;
     public local: string;
     public descricao: string;
     public pontosExtra: number;
@@ -23,7 +23,7 @@ export = class Projeto {
         let lista: Projeto[] = null;
 
         await Sql.conectar(async (sql: Sql) => {
-            lista = await sql.query("select t.nome_tipo_projeto, p.id_projeto, p.fk_ra_usuario, p.fk_id_tipo_projeto, p.nome_projeto, p.terminado_projeto, p.local_projeto, p.descricao_projeto, p.pontos_extra from projeto p, tipo_projeto t where t.id_tipo_projeto = p.fk_id_tipo_projeto") as Projeto[]
+            lista = await sql.query("select t.nome_tipo_projeto, p.id_projeto, p.fk_id_area, p.fk_ra_usuario, p.fk_id_tipo_projeto, p.nome_projeto, p.terminado_projeto, p.local_projeto, p.descricao_projeto, p.pontos_extra from projeto p, tipo_projeto t where t.id_tipo_projeto = p.fk_id_tipo_projeto") as Projeto[]
         })
 
         return lista
@@ -37,10 +37,10 @@ export = class Projeto {
 
         await Sql.conectar(async (sql: Sql) => {
             try {
-                await sql.query("insert into projeto (id_projeto, fk_ra_usuario,fk_id_tipo_projeto, nome_projeto, terminado_projeto,local_projeto,descricao_projeto,pontos_extra) values (?, ?, ?, ?, ?, ?, ?, ?)", [p.idProjeto, p.ra, p.idTipoProjeto, p.nome, p.terminado, p.local, p.descricao, p.pontosExtra])
+                await sql.query("insert into projeto (fk_ra_usuario, fk_id_tipo_projeto, fk_id_area, nome_projeto, terminado_projeto, local_projeto, descricao_projeto, pontos_extra) values (?, ?, ?, ?, ?, ?, ?, ?)", [p.ra, p.idTipoProjeto, p.idArea, p.nome, p.terminado, p.local, p.descricao, p.pontosExtra])
             } catch (e) {
                 if (e.code && e.code === "ER_DUP_ENTRY")
-                    res = `O ID ${p.idProjeto.toString()} já está em uso`
+                    res = `O ID ${p.nome.toString()} já está em uso`
                 else
                     throw e
             }
@@ -53,18 +53,18 @@ export = class Projeto {
         let lista: Projeto[] = null
 
         await Sql.conectar(async (sql: Sql) => {
-            lista = await sql.query("select p.id_projeto, p.nome_projeto, p.terminado_projeto, p.local_projeto, p.descricao_projeto, t.nome_tipo_projeto from projeto p, tipo_projeto t where id_projeto = ? and p.fk_id_tipo_projeto = t.id_tipo_projeto", [id]) as Projeto[]
+            lista = await sql.query("select p.id_projeto, a.nome_area, p.nome_projeto, p.terminado_projeto, p.local_projeto, p.descricao_projeto, t.nome_tipo_projeto from projeto p, tipo_projeto t, area a where id_projeto = ? and p.fk_id_tipo_projeto = t.id_tipo_projeto and p.fk_id_area = a.id_area", [id]) as Projeto[]
         })
 
         return ((lista && lista[0]) || null)
     }
 
 
-    public static async alterar(p: Projeto): Promise<string> {// 
+    public static async alterar(p: Projeto): Promise<string> {
         let res: string;
 
         await Sql.conectar(async (sql: Sql) => {
-            await sql.query("update projeto set  fk_id_tipo_projeto = ?, nome_projeto = ?, local_projeto = ?, descricao_projeto = ?,", [ p.idTipoProjeto, p.nome, p.local, p.descricao]) //coloca as duas Fks e o terminado??
+            await sql.query("update projeto set  fk_id_tipo_projeto = ?, nome_projeto = ?, fk_id_area = ?, local_projeto = ?, descricao_projeto = ?", [p.idTipoProjeto, p.nome, p.idArea, p.local, p.descricao]) //coloca as duas Fks e o terminado??
             if (!sql.linhasAfetadas)
                 res = "Projeto Inexistente"
         })

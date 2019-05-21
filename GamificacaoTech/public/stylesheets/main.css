@@ -1,9 +1,15 @@
-﻿.background {
+﻿body {
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+.background {
+    position:absolute;
     left: 0;
     bottom: 0;
     top: 0;
     z-index: 0;
-    height: 600px;
+    height: 720px;
+    width: 1540px;
 }
 
 .furniture {
@@ -13,7 +19,7 @@
 .desk {
     position: absolute;
     bottom: 20px;
-    left: 670px;
+    left: 770px;
     height: 120px;
 }
 
@@ -27,14 +33,14 @@
 .computer {
     position: absolute;
     bottom: 140px;
-    left: 750px;
+    left: 850px;
     height: 110px;
 }
 
 .photo {
     position: absolute;
-    bottom: 450px;
-    left: 40px;
+    bottom: 560px;
+    left: 75px;
     height: 140px;
 }
 
@@ -46,7 +52,7 @@
     height: 40px;
     font-size: 17px;
     color: #fff;
-    bottom: 530px;
+    bottom: 620px;
     border: none;
     float: left;
 }
@@ -56,19 +62,19 @@
     }
 
 #registro {
-    left: 220px;
+    left: 280px;
 }
 
 #portfolio {
-    left: 340px;
+    left: 400px;
 }
 
 #curriculo {
-    left: 460px;
+    left: 520px;
 }
 
 #loja {
-    left: 580px;
+    left: 640px;
 }
 
 /*.descricao_pc {
@@ -91,7 +97,7 @@
 .wardrobe {
     position: absolute;
     bottom: 20px;
-    left: 430px;
+    left: 530px;
     height: 250px;
 }
 
@@ -114,7 +120,7 @@
 .shelf {
     position: absolute;
     bottom: 420px;
-    left: 700px;
+    left: 1000px;
     width: 300px;
 }
 
@@ -133,3 +139,29 @@
 .prateleiras:hover ~ .descricao_prateleira {
     opacity: 1.0;
 } */
+
+/*Form Matheus*/
+.portifolioForm {
+    width: 80vh;
+    margin-left: 60vh;
+    display: none;
+}
+
+.curriculoForm {
+    width: 80vh;
+    margin-left: 60vh;
+    display:none;
+}
+
+.labelFudida {
+    margin-top: -1vh;
+}
+
+.selectArea{
+    margin-top: 2vh;
+}
+
+.tipoProjetoSelect{
+    margin-top: 2vh;
+}
+/*---------*/

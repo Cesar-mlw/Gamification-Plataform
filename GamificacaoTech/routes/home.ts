@@ -4,6 +4,8 @@ import wrap = require('express-async-error-wrapper')
 import Usuario = require('../models/Usuario')
 import request = require('request')
 import TipoProjeto = require("../models/TipoProjeto")
+import Area = require("../models/Area")
+import Habilidade = require("../models/Habilidade")
 const router = express.Router();
 
 //import usuario
@@ -18,7 +20,9 @@ router.get('/curso', wrap( async(req: express.Request, res: express.Response) =>
 
 router.get('/formTest', wrap(async (req: express.Request, res: express.Response) => {
     let tps = await TipoProjeto.listar()
-    res.render('formTest', { tps: tps})
+    let ar = await Area.listar()
+    let hab = await Habilidade.listar()
+    res.render('formTest', { tps: tps, ar: ar, hab: hab})
 }));
 
 

@@ -9,7 +9,7 @@ module.exports = class Usuario {
     static async listar() {
         let lista = null;
         await Sql.conectar(async (sql) => {
-            lista = await sql.query("select u.ra_usuario, u.nome_usuario, u.semestre_usuario, u.email_usuario, u.dt_entrada_usuario, c.nome_curso from usuario u, curso c where u.id_curso = c.id_curso order by ra_usuario");
+            lista = await sql.query("select u.ra_usuario, u.nome_usuario, u.semestre_usuario, u.email_usuario, u.pontos_bi, u.pontos_dev, u.pontos_games, u.pontos_inov, u.pontos_outros,  u.dt_entrada_usuario, c.nome_curso from usuario u, curso c where u.id_curso = c.id_curso order by ra_usuario");
         });
         return lista;
     }
@@ -20,7 +20,7 @@ module.exports = class Usuario {
             return res;
         await Sql.conectar(async (sql) => {
             try {
-                await sql.query("insert into usuario (ra_usuario, nome_usuario, semestre_usuario, email_usuario, dt_entrada_usuario, id_curso, senha_usuario) values (?, ?, ?, ?, ?, ?, ?)", [u.ra, u.nome, u.semestre, u.email, u.dt_entrada_usuario, u.curso, u.senha]);
+                await sql.query("insert into usuario (ra_usuario, nome_usuario, semestre_usuario, email_usuario, pontos_bi, pontos_dev, pontos_games, pontos_inov, pontos_outros, dt_entrada_usuario, id_curso, senha_usuario) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [u.ra, u.nome, u.semestre, u.email, u.pontosBi, u.pontosDev, u.pontosGames, u.pontosInov, u.pontosOutros, u.dt_entrada_usuario, u.curso, u.senha]);
             }
             catch (e) {
                 if (e.code && e.code === "ER_DUP_ENTRY")
@@ -41,7 +41,7 @@ module.exports = class Usuario {
     static async alterar(u) {
         let res;
         await Sql.conectar(async (sql) => {
-            await sql.query("update usuario set nome_usuario = ?, id_curso = ?, semestre_usuario = ?, email_usuario = ?, ra_usuario = ?", [u.nome, u.curso, u.semestre, u.email, u.ra]);
+            await sql.query("update usuario set nome_usuario = ?, id_curso = ?, semestre_usuario = ?, email_usuario = ?, ra_usuario = ?", [u.ra, u.nome, u.curso, u.semestre, u.email, u.pontosBi, u.pontosDev, u.pontosGames, u.pontosInov, u.pontosOutros]);
             if (!sql.linhasAfetadas)
                 res = "Usuário Inexistente";
         });

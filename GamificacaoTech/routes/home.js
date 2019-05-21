@@ -2,6 +2,8 @@
 const express = require("express");
 const wrap = require("express-async-error-wrapper");
 const TipoProjeto = require("../models/TipoProjeto");
+const Area = require("../models/Area");
+const Habilidade = require("../models/Habilidade");
 const router = express.Router();
 //import usuario
 router.get('/', wrap(async (req, res) => {
@@ -12,7 +14,9 @@ router.get('/curso', wrap(async (req, res) => {
 }));
 router.get('/formTest', wrap(async (req, res) => {
     let tps = await TipoProjeto.listar();
-    res.render('formTest', { tps: tps });
+    let ar = await Area.listar();
+    let hab = await Habilidade.listar();
+    res.render('formTest', { tps: tps, ar: ar, hab: hab });
 }));
 module.exports = router;
 //# sourceMappingURL=home.js.map

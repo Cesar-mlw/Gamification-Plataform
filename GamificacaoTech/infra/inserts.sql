@@ -40,6 +40,14 @@ insert into curso (nome_curso) values("DESIGN");
 insert into curso (nome_curso) values("TECH");
 
 
+insert into habilidade (nome_habilidade) values ("Pyhton");
+insert into habilidade (nome_habilidade) values ("JavaScript");
+insert into habilidade (nome_habilidade) values ("PHP");
+insert into habilidade (nome_habilidade) values ("HTML5");
+insert into habilidade (nome_habilidade) values ("CSS3");
+insert into habilidade (nome_habilidade) values ("Modelage de Banco de Dados");
+
+
 
 select * from projeto;
 

@@ -68,16 +68,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `gamificacaoBanco`.`Habilidade` ;
 
 CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Habilidade` (
-  `id_habilidade` INT NOT NULL,
+  `id_habilidade` INT NOT NULL AUTO_INCREMENT,
   `nome_habilidade` VARCHAR(45) NOT NULL,
-  `fk_id_area_habilidade` INT NOT NULL,
   PRIMARY KEY (`id_habilidade`),
-  UNIQUE INDEX `id_habilidade_UNIQUE` (`id_habilidade` ASC),
-  CONSTRAINT `fk_id_area_habilidade`
-    FOREIGN KEY (`fk_id_area_habilidade`)
-    REFERENCES `gamificacaoBanco`.`Area` (`id_area`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  UNIQUE INDEX `id_habilidade_UNIQUE` (`id_habilidade` ASC)
+  )
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------

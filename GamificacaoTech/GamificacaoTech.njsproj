@@ -39,6 +39,10 @@
     <Content Include="public\css\style.css">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="public\js\request\CHANGELOG.md" />
+    <Content Include="public\js\request\LICENSE" />
+    <Content Include="public\js\request\package.json" />
+    <Content Include="public\js\request\README.md" />
     <Content Include="public\lib\bootstrap-4.3.1-dist\css\bootstrap-grid.css" />
     <Content Include="public\lib\bootstrap-4.3.1-dist\css\bootstrap-grid.css.map" />
     <Content Include="public\lib\bootstrap-4.3.1-dist\css\bootstrap-grid.min.css" />
@@ -80,11 +84,20 @@
     </Content>
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="infra\sql.ts" />
+    <TypeScriptCompile Include="models\Area.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="models\Habilidade.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="models\Projeto.ts" />
     <TypeScriptCompile Include="models\TipoProjeto.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\Usuario.ts" />
+    <TypeScriptCompile Include="routes\api\projeto.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="routes\api\usuario.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -101,6 +114,9 @@
   <ItemGroup>
     <Folder Include="infra\" />
     <Folder Include="models\" />
+    <Folder Include="public\js\" />
+    <Folder Include="public\js\request\" />
+    <Folder Include="public\js\request\lib\" />
     <Folder Include="public\lib\" />
     <Folder Include="public\lib\bootstrap-4.3.1-dist\" />
     <Folder Include="public\lib\bootstrap-4.3.1-dist\css\" />
@@ -116,6 +132,23 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="public\js\main.js" />
+    <Compile Include="public\js\request\index.js" />
+    <Compile Include="public\js\request\lib\auth.js" />
+    <Compile Include="public\js\request\lib\cookies.js" />
+    <Compile Include="public\js\request\lib\getProxyFromURI.js" />
+    <Compile Include="public\js\request\lib\har.js" />
+    <Compile Include="public\js\request\lib\hawk.js" />
+    <Compile Include="public\js\request\lib\helpers.js" />
+    <Compile Include="public\js\request\lib\multipart.js" />
+    <Compile Include="public\js\request\lib\oauth.js" />
+    <Compile Include="public\js\request\lib\querystring.js" />
+    <Compile Include="public\js\request\lib\redirect.js" />
+    <Compile Include="public\js\request\lib\tunnel.js" />
+    <Compile Include="public\js\request\request.js" />
+    <Compile Include="public\js\require.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="public\lib\bootstrap-4.3.1-dist\js\bootstrap.bundle.js" />
     <Compile Include="public\lib\bootstrap-4.3.1-dist\js\bootstrap.bundle.min.js" />
     <Compile Include="public\lib\bootstrap-4.3.1-dist\js\bootstrap.js" />

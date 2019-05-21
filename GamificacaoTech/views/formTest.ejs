@@ -1,7 +1,7 @@
 ﻿<form>
-    <div class="input-group mb-3">
+    <div class="input-group mb-3 firstSelect">
         <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Onde isso será registrado?</label>
+            <label class="input-group-text" for="selectCurPor">Onde isso será registrado?</label>
         </div>
       <select class="custom-select" id="selectCurPor" onchange="clc()">
         <option selected>Choose...</option>
@@ -13,38 +13,42 @@
         <form action=""method="">
                 <div class="form-group">
                         <label for="">Nome do projeto</label>
-                        <input type="nome_projeto" class="form-control" placeholder="Nome do projeto" id="nome_projeto">
+                        <input type="text" class="form-control" placeholder="Nome do projeto" id="nome_projeto">
                 </div>   
                 <div class="form-group">
-                        <label for="">Descrição do projeto</label>
-                        <input type="desc_projeto" class="form-control" placeholder="Descrição do projeto" id="desc_projeto">
-                </div> 
-                <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Area do projeto</label>
-                        <textarea class="form-control" placeholder="Area do projeto" id="area_projeto" rows="3"></textarea>
-                        
-                </div>   
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Onde isso será registrado?</label>
+                        <label for="exampleFormControlTextarea1">Descrição do Projeto</label>
+                        <textarea class="form-control" placeholder="Descrição do Projeto" id="descricao_projeto" rows="3"></textarea>
                 </div>
-                <select class="custom-select" id="selectTipoProjeto" onchange="test()">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Qual a área do projeto?</label>
+                </div>
+                <select class="form-control form-control-lg" id="area_projeto">
+                    <option>Escolha a área do projeto</option>
+                    <% for(let i = 0; i < ar.length; i++){ %>
+                        <option value="<%=ar[i].id_area%>"><%=ar[i].nome_area%></option>
+                    <% } %>
+
+                </select>
+                <div class="input-group-prepend tipoProjetoSelect">
+                    <label class="input-group-text" for="inputGroupSelect01">Qual o tipo do projeto?</label>
+                </div>
+                <select class="custom-select" onchange="test()" id="tipo_projeto">
                     <option selected>Choose...</option>
                     <% for(let i = 0; i < tps.length; i++){%>
-                        <option value="<%=tps[i].nome_tipo_projeto%>"><%= tps[i].nome_tipo_projeto%></option>
+                        <option value="<%=tps[i].id_tipo_projeto%>"><%= tps[i].nome_tipo_projeto%></option>
                     <%}%>
                 </select> 
-                <div class="form-group">
+                <div class="form-group tipoProjetoSelect">
                         <label for="">Local do projeto</label>
-                        <input type="local_projeto" class="form-control" placeholder="Local do Projeto" id="local_projeto">
+                        <input type="text" class="form-control" placeholder="Local do Projeto" id="local_projeto">
                 </div>
 
-                <div class="form-row">
-                    <input type="checkbox" id="terminando_projeto" name="terminando" value="projeto">
-                    <label for="terminando_projeto">  Terminando o projeto?</label>
+                <div class="form-row checkboxFudida">
+                    <input type="checkbox" id="terminado_projeto" name="terminando">
+                    <label for="terminando_projeto" class="labelFudida">  Terminando o projeto?</label>
                 </div>
                 <div class="form-group">
-                        <button type="enviar" class="btn btn-primary mb-2">Enviar</button>
-
+                   <button type="button" class="btn btn-primary mb-2" onclick="portEnviar()">Enviar</button>
                 </div>
             </form>
     </div>
@@ -52,18 +56,20 @@
         <select class="form-control form-control-lg">
       
             <option>Escolha sua habilidade</option>
-            <option>Games</option>
-            <option>Desenvolvimento</option>
-            <option>BI</option>
-            <option>Inovacao</option>
+            <% for(let i = 0; i < hab.length; i++){ %>
+                <option value="<%=hab[i].id_habilidade%>"><%=hab[i].nome_habilidade%></option>
+            <% } %>
 
           </select>
-          <select class="form-control">
+          <select class="form-control selectArea">
             <option>Nivel de proficiencia</option>
             <option>Baixo</option>
             <option>Medio</option>
             <option>Avancado</option>
           </select>
+        <div class="form-group selectArea">
+            <button type="button" class="btn btn-primary mb-2">Enviar</button>
+        </div>
     </div>
 </form>
 
@@ -98,10 +104,35 @@
         }
 
     }
+    function portEnviar() {
 
-    test = () => {
-        let selectBox = document.getElementById("selectTipoProjeto")
-        let selectedValue = selectBox.options[selectBox.selectedIndex].value
-        console.log(selectedValue)
+        let nome_projeto = document.getElementById("nome_projeto").value
+        let descricao_projeto = document.getElementById("descricao_projeto").value   
+        let areaSelect = document.getElementById("area_projeto")
+        let areaSelectedValue = areaSelect.options[areaSelect.selectedIndex].value //id_area
+        console.log(areaSelectedValue)
+        let tipoSelect = document.getElementById("tipo_projeto")
+        let tipoSelectedValue = tipoSelect.options[tipoSelect.selectedIndex].value //id_tipo_projeto
+        console.log(tipoSelectedValue)
+        let local_projeto = document.getElementById("local_projeto").value
+        let terminado_projeto = (document.getElementById("terminado_projeto").checked) ? "1" : "0"
+        let ra_usu = "11122233"
+
+        const Http = new XMLHttpRequest();
+        const form = {
+            ra: "11122233",
+            idArea: areaSelectedValue,
+            idTipoProjeto: tipoSelectedValue,
+            nome: nome_projeto,
+            terminado: terminado_projeto,
+            local: local_projeto,
+            descricao: descricao_projeto,
+            pontosExtra: 0
+        }
+        const url='http://localhost:1337/api/projeto/criar';
+        Http.open("POST", url, false);
+        Http.setRequestHeader("Content-Type", "application/json")
+        Http.send(JSON.stringify(form));
+        console.log(Http.response)
     }
 </script>
