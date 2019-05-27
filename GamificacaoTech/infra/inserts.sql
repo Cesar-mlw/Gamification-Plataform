@@ -47,18 +47,6 @@ insert into habilidade (nome_habilidade) values ("HTML5");
 insert into habilidade (nome_habilidade) values ("CSS3");
 insert into habilidade (nome_habilidade) values ("Modelage de Banco de Dados");
 
-
-
-select * from projeto;
-
-select * from achievement;
-select * from achievement_usuario;
-select * from area;
-select * from curso;
-select * from informacao;
-select * from tipo_informacao;
-select * from item;
-select * from item_usuario;
-select * from projeto;
-select * from tipo_projeto;
-select * from usuario;
+insert into nivel_proficiencia (nome_nivel_proficiencia) values("baixo");
+insert into nivel_proficiencia (nome_nivel_proficiencia) values("media");
+insert into nivel_proficiencia (nome_nivel_proficiencia) values("alto");

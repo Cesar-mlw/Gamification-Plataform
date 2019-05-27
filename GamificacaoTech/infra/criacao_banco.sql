@@ -78,21 +78,27 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `gamificacaoBanco`.`Usuario`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `gamificacaoBanco`.`Projeto_Habilidade` ;
+DROP TABLE IF EXISTS `gamificacaoBanco`.`Usuario_Habilidade` ;
 
-CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Projeto_Habilidade` (
-  `id_projeto_habilidade` INT NOT NULL,
-  `id_projeto_projeto_habilidade` INT NOT NULL,
-  `id_habilidade_projeto_habilidade` INT NOT NULL,
-  PRIMARY KEY (`id_projeto_habilidade`),
-  UNIQUE INDEX `id_projeto_habilidade_UNIQUE` (`id_projeto_habilidade` ASC),
-  CONSTRAINT `fk_id_projeto_projeto_habilidade`
-    FOREIGN KEY (`id_projeto_projeto_habilidade`)
-    REFERENCES `gamificacaoBanco`.`Projeto` (`id_projeto`)
+CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Usuario_Habilidade` (
+  `id_usuario_habilidade` INT NOT NULL AUTO_INCREMENT,
+  `id_usuario_usuario_habilidade` INT NOT NULL,
+  `id_habilidade_usuario_habilidade` INT NOT NULL,
+  `id_nivel_proficiencia_usuario_habilidade` INT NOT NULL,
+  PRIMARY KEY (`id_usuario_habilidade`),
+  UNIQUE INDEX `id_usuario_habilidade_UNIQUE` (`id_usuario_habilidade` ASC),
+  CONSTRAINT `fk_id_usuario_usuario_habilidade`
+    FOREIGN KEY (`id_usuario_usuario_habilidade`)
+    REFERENCES `gamificacaoBanco`.`Usuario` (`ra_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_id_habilidade_projeto_habilidade`
-    FOREIGN KEY (`id_habilidade_projeto_habilidade`)
+  CONSTRAINT `fk_id_nivel_proficiencia_usuario_habilidade`
+    FOREIGN KEY (`id_nivel_proficiencia_usuario_habilidade`)
+    REFERENCES `gamificacaoBanco`.`Nivel_Proficiencia` (`id_nivel_proficiencia`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_id_habilidade_usuario_habilidade`
+    FOREIGN KEY (`id_habilidade_usuario_habilidade`)
     REFERENCES `gamificacaoBanco`.`Habilidade` (`id_habilidade`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -229,6 +235,17 @@ CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Achievement` (
   `nome_achievement` VARCHAR(45) NOT NULL,
   `criterio_achievement` VARCHAR(250) NOT NULL,
   PRIMARY KEY (`id_achievement`))
+ENGINE = InnoDB;
+-- -----------------------------------------------------
+-- Table `gamificacaoBanco`.`Nivel PRoficiencia`
+-- -----------------------------------------------------
+
+DROP TABLE IF EXISTS `gamificacaoBanco`.`Nivel_Proficiencia` ;
+
+CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Nivel_Proficiencia` (
+  `id_nivel_proficiencia` INT NOT NULL AUTO_INCREMENT,
+  `nome_nivel_proficiencia` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_nivel_proficiencia`))
 ENGINE = InnoDB;
 
 

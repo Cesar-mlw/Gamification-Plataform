@@ -10,10 +10,9 @@
       </select>
     </div>
     <div id="formPortifolio" class="portifolioForm">
-        <form action=""method="">
                 <div class="form-group">
                         <label for="">Nome do projeto</label>
-                        <input type="text" class="form-control" placeholder="Nome do projeto" id="nome_projeto">
+                        <input type="text" class="form-control" placeholder="Nome do projeto" id="nome_projeto" name="">
                 </div>   
                 <div class="form-group">
                         <label for="exampleFormControlTextarea1">Descrição do Projeto</label>
@@ -50,10 +49,9 @@
                 <div class="form-group">
                    <button type="button" class="btn btn-primary mb-2" onclick="portEnviar()">Enviar</button>
                 </div>
-            </form>
     </div>
     <div id="formCurriculo" class="curriculoForm">
-        <select class="form-control form-control-lg">
+        <select class="form-control form-control-lg" id="selectHabilidade">
       
             <option>Escolha sua habilidade</option>
             <% for(let i = 0; i < hab.length; i++){ %>
@@ -61,14 +59,14 @@
             <% } %>
 
           </select>
-          <select class="form-control selectArea">
+          <select class="form-control selectArea" id="selectNivelProficiencia">
             <option>Nivel de proficiencia</option>
-            <option>Baixo</option>
-            <option>Medio</option>
-            <option>Avancado</option>
+            <option value="1">Baixo</option>
+            <option value="2">Medio</option>
+            <option value="3">Avancado</option>
           </select>
         <div class="form-group selectArea">
-            <button type="button" class="btn btn-primary mb-2">Enviar</button>
+            <button type="button" class="btn btn-primary mb-2" onclick="currEnviar()">Enviar</button>
         </div>
     </div>
 </form>
@@ -118,7 +116,6 @@
         let terminado_projeto = (document.getElementById("terminado_projeto").checked) ? "1" : "0"
         let ra_usu = "11122233"
 
-        const Http = new XMLHttpRequest();
         const form = {
             ra: "11122233",
             idArea: areaSelectedValue,
@@ -129,10 +126,64 @@
             descricao: descricao_projeto,
             pontosExtra: 0
         }
-        const url='http://localhost:1337/api/projeto/criar';
+
+
+        $.ajax({
+            url: "",
+            method: "post",
+            data: JSON.stringify(form),
+            contentType: "applicagd",
+            success: function (data) {
+
+            },
+            error: function () {
+
+            }
+        })
+
+
+        $.ajax({
+            url: "",
+            method: "post",
+            data: $("#form").serialize(),
+            success: function (data) {
+
+            },
+            error: function () {
+
+            }
+        })
+
+
+
+        const Http = new XMLHttpRequest();
+        Http.open("POST", 'http://localhost:1337/api/projeto/criar', true);
+        Http.onreadystatechange = function () {
+            if (Http.readyState === 4) {
+                alert("foi");
+            }
+        };
+        Http.setRequestHeader("Content-Type", "application/json")
+        Http.send(JSON.stringify(form));
+    }
+
+    function currEnviar() {
+        let selectHabilidade = document.getElementById("selectHabilidade")
+        let selectHabilidadeValue = selectHabilidade.options[selectHabilidade.selectedIndex].value //id_area
+        let selectNivelProficiencia = document.getElementById("selectNivelProficiencia")
+        let selectNivelProficienciaValue = selectNivelProficiencia.options[selectNivelProficiencia.selectedIndex].value //id_area
+
+       const Http = new XMLHttpRequest();
+        const form = {
+            idUsuario: "11122233",
+            idHabilidade: selectHabilidadeValue,
+            idNivelProficiencia: selectNivelProficienciaValue,
+        }
+        const url='http://localhost:1337/api/usuarioHabilidade/criar'
         Http.open("POST", url, false);
         Http.setRequestHeader("Content-Type", "application/json")
         Http.send(JSON.stringify(form));
         console.log(Http.response)
+        
     }
 </script>

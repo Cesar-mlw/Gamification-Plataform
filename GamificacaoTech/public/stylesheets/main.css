@@ -1,15 +1,11 @@
-﻿body {
-    overflow: hidden;
-    font-family: 'Open Sans', sans-serif;
-}
-.background {
-    position:absolute;
+﻿.background {
     left: 0;
     bottom: 0;
     top: 0;
     z-index: 0;
-    height: 720px;
-    width: 1540px;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
 }
 
 .furniture {
@@ -18,41 +14,41 @@
 
 .desk {
     position: absolute;
-    bottom: 20px;
-    left: 770px;
-    height: 120px;
+    bottom: 1vh;
+    right: 15vw;
+    height: 18vh;
 }
 
 .board {
     position: absolute;
-    bottom: 320px;
-    left: 350px;
-    height: 131px;
+    bottom: 50vh;
+    right: 50vw;
+    height: 22vh;
 }
 
 .computer {
     position: absolute;
-    bottom: 140px;
-    left: 850px;
-    height: 110px;
+    bottom: 19vh;
+    right: 19vw;
+    height: 16vh;
 }
 
 .photo {
     position: absolute;
-    bottom: 560px;
-    left: 75px;
-    height: 140px;
+    bottom: 70vh;
+    left: 5vw;
+    height: 23vh;
 }
 
 .botoes {
     position: absolute;
     background: #F2D630;
-    font: 12px/30px Georgia, serif;
-    width: 100px;
-    height: 40px;
-    font-size: 17px;
+    font-family: 'Open Sans', sans-serif;
+    width: 10vw;
+    height: 6.5vh;
+    font-size: 3vh;
     color: #fff;
-    bottom: 620px;
+    bottom: 530px;
     border: none;
     float: left;
 }
@@ -62,19 +58,19 @@
     }
 
 #registro {
-    left: 280px;
+    left: 18.5vw;
 }
 
 #portfolio {
-    left: 400px;
+    left: 30.5vw;
 }
 
 #curriculo {
-    left: 520px;
+    left: 42.5vw;
 }
 
 #loja {
-    left: 640px;
+    left: 54.5vw;
 }
 
 /*.descricao_pc {
@@ -96,9 +92,9 @@
 
 .wardrobe {
     position: absolute;
-    bottom: 20px;
-    left: 530px;
-    height: 250px;
+    bottom: 1vh;
+    right: 40vw;
+    height: 40vh;
 }
 
 /*.armario:hover ~ .descricao_armario {
@@ -119,9 +115,9 @@
 
 .shelf {
     position: absolute;
-    bottom: 420px;
-    left: 1000px;
-    width: 300px;
+    bottom: 65vh;
+    right: 6vw;
+    width: 25vw;
 }
 
 /*.descricao_prateleira {
@@ -140,7 +136,7 @@
     opacity: 1.0;
 } */
 
-/*Form Matheus*/
+
 .portifolioForm {
     width: 80vh;
     margin-left: 60vh;
@@ -150,18 +146,9 @@
 .curriculoForm {
     width: 80vh;
     margin-left: 60vh;
-    display:none;
+    display: none;
 }
 
 .labelFudida {
     margin-top: -1vh;
 }
-
-.selectArea{
-    margin-top: 2vh;
-}
-
-.tipoProjetoSelect{
-    margin-top: 2vh;
-}
-/*---------*/

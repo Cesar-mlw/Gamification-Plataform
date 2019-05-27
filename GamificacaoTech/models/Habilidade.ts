@@ -6,8 +6,6 @@ export = class Habilidade {
 
     public idHabilidade: number;
     public nomeHabilidade: string;
-    public pontosHabilidade: number;
-
 
 
 
@@ -19,6 +17,8 @@ export = class Habilidade {
         })
         return lista
     }
+
+    
 
 
 }
