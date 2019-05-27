@@ -19,10 +19,10 @@ router.get('/curso', wrap( async(req: express.Request, res: express.Response) =>
 }));
 
 router.get('/formTest', wrap(async (req: express.Request, res: express.Response) => {
-    let tps = await TipoProjeto.listar()
+    let tps = await TipoProjeto.listar() //métodos do modelos 
     let ar = await Area.listar()
     let hab = await Habilidade.listar()
-    res.render('formTest', { tps: tps, ar: ar, hab: hab})
+    res.render('formTest', { tps: tps, ar: ar, hab: hab})//renderizar a tela
 }));
 
 
