@@ -64,6 +64,9 @@
     <TypeScriptCompile Include="models\Achievement.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="models\AchievementUsuario.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="models\Area.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -74,6 +77,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\ItemUsuario.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="models\Noticia.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\Projeto.ts" />
