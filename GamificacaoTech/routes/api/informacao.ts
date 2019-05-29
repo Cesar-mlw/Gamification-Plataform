@@ -1,6 +1,6 @@
 ﻿import express = require("express")
 import wrap = require("express-async-error-wrapper");
-import Projeto = require("../../models/Informacao");
+import Informacao = require("../../models/Informacao");
 
 const router = express.Router()
 
@@ -26,7 +26,7 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 
 router.post("/deletar", wrap(async (req: express.Request, res: express.Response) => {
     let idInformacao = req.body.idInformacao
-    let i = await Projeto.deletar(idInformacao)
+    let i = await Informacao.deletar(idInformacao)
     if (i == false) {
 
         res.json("Informacao não encontrada")

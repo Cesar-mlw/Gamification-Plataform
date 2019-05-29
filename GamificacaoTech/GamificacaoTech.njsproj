@@ -73,6 +73,9 @@
     <TypeScriptCompile Include="models\Informacao.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="models\ItemUsuario.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="models\Projeto.ts" />
     <TypeScriptCompile Include="models\TipoProjeto.ts">
       <SubType>Code</SubType>

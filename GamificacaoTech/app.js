@@ -16,6 +16,8 @@ app.use('/', require("./routes/home"));
 app.use("/api/usuario", require("./routes/api/usuario"));
 app.use("/api/projeto", require("./routes/api/projeto"));
 app.use("/api/usuarioHabilidade", require("./routes/api/habilidadeUsuario"));
+app.use("/api/achievement", require("./routes/api/achievement"));
+app.use("/api/informacao", require("./routes/api/informacao"));
 // catch 404 and forward to error handler
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

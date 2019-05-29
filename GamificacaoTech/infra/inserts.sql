@@ -46,6 +46,12 @@ insert into habilidade (nome_habilidade) values ("PHP");
 insert into habilidade (nome_habilidade) values ("HTML5");
 insert into habilidade (nome_habilidade) values ("CSS3");
 insert into habilidade (nome_habilidade) values ("Modelage de Banco de Dados");
+insert into habilidade (nome_habilidade) values ("Inglês");
+insert into habilidade (nome_habilidade) values ("Espanhol");
+insert into habilidade (nome_habilidade) values ("Alemão");
+insert into habilidade (nome_habilidade) values ("Tsonga");
+insert into habilidade (nome_habilidade) values ("Francês");
+insert into habilidade (nome_habilidade) values ("Italiano");
 
 insert into nivel_proficiencia (nome_nivel_proficiencia) values("baixo");
 insert into nivel_proficiencia (nome_nivel_proficiencia) values("media");

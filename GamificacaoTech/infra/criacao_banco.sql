@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Usuario_Habilidade` (
   `id_usuario_usuario_habilidade` INT NOT NULL,
   `id_habilidade_usuario_habilidade` INT NOT NULL,
   `id_nivel_proficiencia_usuario_habilidade` INT NOT NULL,
+  `range_habilidade_usuario` FLOAT NOT NULL,
   PRIMARY KEY (`id_usuario_habilidade`),
   UNIQUE INDEX `id_usuario_habilidade_UNIQUE` (`id_usuario_habilidade` ASC),
   CONSTRAINT `fk_id_usuario_usuario_habilidade`
@@ -182,6 +183,25 @@ CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Item` (
   `img_url_item` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_item`),
   UNIQUE INDEX `id_item_UNIQUE` (`id_item` ASC))
+ENGINE = InnoDB;
+-- -----------------------------------------------------
+-- Table `gamificacaoBanco`.`Noticia`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `gamificacaoBanco`.`Noticia` ;
+
+CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Noticia` (
+  `id_noticia` INT NOT NULL AUTO_INCREMENT,
+  `nome_noticia` VARCHAR(45) NOT NULL,
+  `autor_noticia` INT NOT NULL,
+  `corpo_noticia` VARCHAR(250) NOT NULL,
+  PRIMARY KEY (`id_noticia`),
+  UNIQUE INDEX `id_noticia_UNIQUE` (`id_noticia` ASC),
+  INDEX `autor_noticia_idx` (`autor_noticia` ASC),
+  CONSTRAINT `fk_autor_noticia`
+	FOREIGN KEY (`autor_noticia`)
+	REFERENCES `gamificacaoBanco`.`Usuario` (`ra_usuario`)
+	ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 

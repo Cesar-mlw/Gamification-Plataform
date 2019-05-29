@@ -6,16 +6,45 @@ import request = require('request')
 import TipoProjeto = require("../models/TipoProjeto")
 import Area = require("../models/Area")
 import Habilidade = require("../models/Habilidade")
+import ItemUsuario = require("../models/ItemUsuario")
+import UsuarioHabilidade = require("../models/UsuarioHabilidade")
+import Projeto = require('../models/Projeto');
+import Noticia = require("../models/Noticia")
+import AchievementUsuario = require("../models/AchievementUsuario")
 const router = express.Router();
 
 //import usuario
 router.get('/', wrap(async (req: express.Request, res: express.Response) => {//Declaração de rota
-    res.render('home', { titulo: 'Gamificação TECH', }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+    //itens / pontos das áreas
+    let u = await Usuario.obter(11122233)
+    let iu = await ItemUsuario.obterItensUsuario(11122233)
+    let pontos = []
+    pontos.push(u.pontos_bi, u.pontos_dev, u.pontos_games, u.pontos_inov, u.pontos_outros)
+    res.render('home', { titulo: 'Gamificação TECH', pontos: pontos, iu}); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
 }));
 
-router.get('/curso', wrap( async(req: express.Request, res: express.Response) => {
-    
-    res.render('curso', { titulo: 'Gamificação TECH', nome_curso: "Banco de Dados"});//estarei deixando como exemplo a rota curso e junto um arquivo chamado curso.ejs
+router.get('/pc', wrap(async (req: express.Request, res: express.Response) => {//Declaração de rota
+    res.render('pc', { titulo: 'Gamificação TECH'}); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+}));
+
+router.get('/cv', wrap(async (req: express.Request, res: express.Response) => {//Declaração de rota
+    let habilidades = await UsuarioHabilidade.obter(11122233)
+    res.render('cvPage', { titulo: 'Gamificação TECH', hab: habilidades }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+}));
+
+router.get('/port', wrap(async (req: express.Request, res: express.Response) => {//Declaração de rota
+    let projetos = await Projeto.obter(11122233)
+    res.render('cvPage', { titulo: 'Gamificação TECH', proj:projetos }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+}));
+
+router.get('/feed', wrap(async (req: express.Request, res: express.Response) => {//Declaração de rota
+    let noticias = await Noticia.listar()
+    res.render('cvPage', { titulo: 'Gamificação TECH', noti: noticias }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+}));
+
+router.get('/achieve', wrap(async (req: express.Request, res: express.Response) => {//Declaração de rota
+    let achieve = await AchievementUsuario.listar()
+    res.render('cvPage', { titulo: 'Gamificação TECH', achi: achieve }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
 }));
 
 router.get('/formTest', wrap(async (req: express.Request, res: express.Response) => {
