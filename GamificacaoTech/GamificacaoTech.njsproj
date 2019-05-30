@@ -36,6 +36,10 @@
   <ItemGroup>
     <Content Include="infra\criacao_banco.sql" />
     <Content Include="infra\inserts.sql" />
+    <Content Include="public\lib\data-tables\css\data-tables-1.0.0.css" />
+    <Content Include="views\achieve.ejs">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\cabecalho.ejs">
       <SubType>Code</SubType>
     </Content>
@@ -120,6 +124,9 @@
     <Folder Include="models\" />
     <Folder Include="public\js\" />
     <Folder Include="public\lib\" />
+    <Folder Include="public\lib\data-tables\" />
+    <Folder Include="public\lib\data-tables\css\" />
+    <Folder Include="public\lib\data-tables\js\" />
     <Folder Include="utils\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
@@ -129,6 +136,9 @@
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
     <Folder Include="views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="public\lib\data-tables\js\data-tables-1.0.0.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

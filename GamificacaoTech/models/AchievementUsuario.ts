@@ -41,14 +41,24 @@ export = class AchievementUsuario {
         return res
     }
 
-    public static async obter(ra: number): Promise<string> {
+    public static async obterCompletado(ra: number): Promise<string> {
         let lista: string = null
 
         await Sql.conectar(async (sql: Sql) => {
             lista = JSON.stringify(await sql.query("select a.id_achievement, a.nome_achievement, a.criterio_achievement from achievement a, achievement_usuario u where fk_usuario_id = ? and a.id_achievement = u.fk_achievement_id", [ra]))
+            console.log(lista)
         })
 
-        return ((lista && lista[0]) || null)
+        return lista
+    }
+    public static async obterNaoCompletado(ra: number): Promise<string> {
+        let lista: string = null
+
+        await Sql.conectar(async (sql: Sql) => {
+            lista = JSON.stringify(await sql.query("select a.id_achievement, a.nome_achievement, a.criterio_achievement from achievement a, achievement_usuario u where fk_usuario_id != ? and a.id_achievement = u.fk_achievement_id", [ra]))
+        })
+
+        return lista
     }
 
 

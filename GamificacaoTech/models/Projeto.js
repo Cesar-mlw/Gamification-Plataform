@@ -30,10 +30,10 @@ module.exports = class Projeto {
         });
         return res;
     }
-    static async obter(id) {
+    static async obter(ra) {
         let lista = null;
         await Sql.conectar(async (sql) => {
-            lista = await sql.query("select p.id_projeto, a.nome_area, p.nome_projeto, p.terminado_projeto, p.local_projeto, p.descricao_projeto, t.nome_tipo_projeto from projeto p, tipo_projeto t, area a where id_projeto = ? and p.fk_id_tipo_projeto = t.id_tipo_projeto and p.fk_id_area = a.id_area", [id]);
+            lista = await sql.query("select p.id_projeto, a.nome_area, p.nome_projeto, p.terminado_projeto, p.local_projeto, p.descricao_projeto, t.nome_tipo_projeto from projeto p, tipo_projeto t, area a where fk_ra_usuario = ? and p.fk_id_tipo_projeto = t.id_tipo_projeto and p.fk_id_area = a.id_area", [ra]);
         });
         return ((lista && lista[0]) || null);
     }

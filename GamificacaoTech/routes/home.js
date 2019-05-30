@@ -6,6 +6,10 @@ const TipoProjeto = require("../models/TipoProjeto");
 const Area = require("../models/Area");
 const Habilidade = require("../models/Habilidade");
 const ItemUsuario = require("../models/ItemUsuario");
+const UsuarioHabilidade = require("../models/UsuarioHabilidade");
+const Projeto = require("../models/Projeto");
+const Noticia = require("../models/Noticia");
+const AchievementUsuario = require("../models/AchievementUsuario");
 const router = express.Router();
 //import usuario
 router.get('/', wrap(async (req, res) => {
@@ -20,7 +24,22 @@ router.get('/pc', wrap(async (req, res) => {
     res.render('pc', { titulo: 'Gamificação TECH' }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
 }));
 router.get('/cv', wrap(async (req, res) => {
-    res.render('pc', { titulo: 'Gamificação TECH' }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+    let habilidades = await UsuarioHabilidade.obter(11122233);
+    res.render('cvPage', { titulo: 'Gamificação TECH', hab: habilidades }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+}));
+router.get('/port', wrap(async (req, res) => {
+    let projetos = await Projeto.obter(11122233);
+    res.render('cvPage', { titulo: 'Gamificação TECH', proj: projetos }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+}));
+router.get('/feed', wrap(async (req, res) => {
+    let noticias = await Noticia.listar();
+    res.render('feed', { titulo: 'Gamificação TECH', noti: noticias }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+}));
+router.get('/achieve', wrap(async (req, res) => {
+    let achieveCompleto = await AchievementUsuario.obterCompletado(11122233);
+    let achieveNCompleto = await AchievementUsuario.obterNaoCompletado(11122233);
+    console.log(achieveCompleto);
+    res.render('achieve', { titulo: 'Gamificação TECH', achiComp: achieveCompleto, achiNComp: achieveNCompleto }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
 }));
 router.get('/formTest', wrap(async (req, res) => {
     let tps = await TipoProjeto.listar(); //métodos do modelos 

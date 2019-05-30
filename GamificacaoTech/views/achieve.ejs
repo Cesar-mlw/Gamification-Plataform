@@ -1,0 +1,30 @@
+﻿<button class="iconBtn" onclick="homeClick()"><i class="fa fa-home"></i></button>
+<table class="cell-border compact stripe" id="tabela"></table>
+
+
+
+
+
+
+
+
+
+<%- contentFor("scripts") %>
+<script type="text/javascript">
+    var tabela = prepareDataTable("#tabela", {
+        order: [[0, "asc"]],
+        deferRender: true,
+        columns: [
+            { title: "ID", "class": "col-min", data: "id_achievement" },
+            { title: "Nome", "class": "col-50", data: "nome_achievement" },
+            { title: "Criterio Achievement", "class": "col-75", data: "criterio_achievement" },
+
+        ],
+        data: <%-achiComp %>
+    })
+
+
+    function homeClick() {
+        window.location.replace("/")
+    }
+</script>

@@ -43,8 +43,10 @@ router.get('/feed', wrap(async (req: express.Request, res: express.Response) => 
 }));
 
 router.get('/achieve', wrap(async (req: express.Request, res: express.Response) => {//Declaração de rota
-    let achieve = await AchievementUsuario.listar()
-    res.render('achieve', { titulo: 'Gamificação TECH', achi: achieve }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+    let achieveCompleto = await AchievementUsuario.obterCompletado(11122233)
+    let achieveNCompleto = await AchievementUsuario.obterNaoCompletado(11122233)
+    console.log(achieveCompleto)
+    res.render('achieve', { titulo: 'Gamificação TECH', achiComp: achieveCompleto, achiNComp: achieveNCompleto }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
 }));
 
 router.get('/formTest', wrap(async (req: express.Request, res: express.Response) => {
