@@ -39,12 +39,12 @@ router.get('/port', wrap(async (req: express.Request, res: express.Response) => 
 
 router.get('/feed', wrap(async (req: express.Request, res: express.Response) => {//Declaração de rota
     let noticias = await Noticia.listar()
-    res.render('cvPage', { titulo: 'Gamificação TECH', noti: noticias }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+    res.render('feed', { titulo: 'Gamificação TECH', noti: noticias }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
 }));
 
 router.get('/achieve', wrap(async (req: express.Request, res: express.Response) => {//Declaração de rota
     let achieve = await AchievementUsuario.listar()
-    res.render('cvPage', { titulo: 'Gamificação TECH', achi: achieve }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+    res.render('achieve', { titulo: 'Gamificação TECH', achi: achieve }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
 }));
 
 router.get('/formTest', wrap(async (req: express.Request, res: express.Response) => {
