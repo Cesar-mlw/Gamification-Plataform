@@ -1,27 +1,23 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title><%=((typeof titulo === "undefined" || !titulo) ? "Gamificação TECH" : (titulo + " - Gamificação TECH"))%></title>
+    <title><%=((typeof titulo === "undefined" || !titulo) ? "Gamificação TECH" : (titulo + " - Gamificação TECH"))%></title>
 
-        <%- include("cabecalho") %>
+    <%- include("cabecalho") %>
+    <link rel="stylesheet" href="/stylesheets/main.css" />
 
-        
-    </head>
-    <body>
+</head>
+<body>
 
-        
-        <div id="page-wrapper" class="page-wrapper">
+    <div id="page-wrapper" class="page-wrapper">
+		<%- body %>
+    </div>
 
-            <%- body %>
 
-        </div>
-        
-
-        <%- include("rodape") %>
-        <%- defineContent("scripts") %>
-
-    </body>
+    <%- include("rodape") %>
+    <%- defineContent("scripts") %>
+</body>
 </html>

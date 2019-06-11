@@ -45,8 +45,12 @@ router.get('/feed', wrap(async (req: express.Request, res: express.Response) => 
 router.get('/achieve', wrap(async (req: express.Request, res: express.Response) => {//Declaração de rota
     let achieveCompleto = await AchievementUsuario.obterCompletado(11122233)
     let achieveNCompleto = await AchievementUsuario.obterNaoCompletado(11122233)
-    console.log(achieveCompleto)
-    res.render('achieve', { titulo: 'Gamificação TECH', achiComp: achieveCompleto, achiNComp: achieveNCompleto }); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
+    let achieveBI = JSON.stringify(JSON.parse(achieveCompleto).filter(ac => { return ac.area_achievement == 1 }))
+    let achieveGames = JSON.stringify(JSON.parse(achieveCompleto).filter(ac => { return ac.area_achievement == 2 }))
+    let achieveDev = JSON.stringify(JSON.parse(achieveCompleto).filter(ac => { return ac.area_achievement == 3 }))
+    let achieveInov = JSON.stringify(JSON.parse(achieveCompleto).filter(ac => { return ac.area_achievement == 4 }))
+    console.log(achieveBI)
+    res.render('achieve', { titulo: 'Gamificação TECH', achiComp: achieveCompleto, achiNComp: achieveNCompleto, achiBI: achieveBI, achiGames: achieveGames, achiDev: achieveDev, achiInov: achieveInov}); //função para exibir layout para o usuário. res.resnder(/nome da rota/, {/variáveis que poderão ser consumidas pelo layout/})
 }));
 
 router.get('/formTest', wrap(async (req: express.Request, res: express.Response) => {
@@ -54,6 +58,10 @@ router.get('/formTest', wrap(async (req: express.Request, res: express.Response)
     let ar = await Area.listar()
     let hab = await Habilidade.listar()
     res.render('formTest', { tps: tps, ar: ar, hab: hab})//renderizar a tela
+}));
+
+router.get('/portifolio', wrap(async (req: express.Request, res: express.Response) => {
+    res.render('portifolio', { titulo: "Portifolio"})//renderizar a tela
 }));
 
 

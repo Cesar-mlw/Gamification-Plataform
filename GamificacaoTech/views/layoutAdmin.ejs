@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title><%=((typeof titulo === "undefined" || !titulo) ? "Gamificação TECH" : (titulo + " - Gamificação TECH"))%></title>
+
+    <%- include("cabecalho") %>
+    <link rel="stylesheet" href="/css/admin-1.0.19.css" />
+
+</head>
+<body>
+
+    <%- include("navbar") %>
+
+    <div id="page-wrapper" class="page-wrapper">
+        <div class="row" style="margin-top: -4vh;">
+			<div class="col-lg-12">
+				<h1 class="page-header"><%=((typeof titulo === "undefined" || !titulo) ? "Gamificação TECH" : titulo) %></h1>
+			</div>
+		</div>
+
+        <%- body %>
+    </div>
+
+    <%- include("rodape") %>
+    <script type="text/javascript" src="/js/admin-1.0.3.js"></script>
+
+    <%- defineContent("scripts") %>
+</body>
+</html>

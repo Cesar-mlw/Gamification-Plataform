@@ -58,10 +58,13 @@ module.exports = class Usuario {
     }
     static async efetuarLogin(ra, senha) {
         let res = true;
+        console.log(ra + " " + senha);
         await Sql.conectar(async (sql) => {
-            let hash;
-            hash = await sql.query("select senha_usuario from usuario where ra_usuario = ?", [ra]);
-            if (!await GeradorHash.validarSenha(senha, hash[0].senha_usuario)) {
+            let hash = await sql.query("select senha_usuario from usuario where ra_usuario = ?", [ra]);
+            if (hash.length == 0) {
+                res = false;
+            }
+            else if (!await GeradorHash.validarSenha(senha, hash[0].senha_usuario)) {
                 res = false;
             }
         });

@@ -254,7 +254,14 @@ CREATE TABLE IF NOT EXISTS `gamificacaoBanco`.`Achievement` (
   `id_achievement` INT NOT NULL AUTO_INCREMENT,
   `nome_achievement` VARCHAR(45) NOT NULL,
   `criterio_achievement` VARCHAR(250) NOT NULL,
-  PRIMARY KEY (`id_achievement`))
+  `area_achievement` INT NOT NULL,
+  PRIMARY KEY (`id_achievement`),
+  INDEX `fk_area_achievement_idx` (`area_achievement` ASC),
+  CONSTRAINT `fk_area_achievement`
+    FOREIGN KEY (`area_achievement`)
+    REFERENCES `gamificacaoBanco`.`Area` (`id_area`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `gamificacaoBanco`.`Nivel PRoficiencia`

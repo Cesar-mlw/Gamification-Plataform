@@ -1,5 +1,28 @@
-﻿<button class="iconBtn" onclick="homeClick()"><i class="fa fa-home"></i></button>
-<table class="cell-border compact stripe" id="tabela"></table>
+﻿<div class="achieveContainer">
+    <button class="iconBtn botaoVoltar" onclick="homeClick()"><i class="fa fa-home"></i></button>
+    <h1>BI</h1>
+    <div class="tabelaTop">
+        <table class="table table-striped table-hover" id="tabelaBI"></table>
+    </div>
+    <h1>Dev</h1>
+    <div class="tabelaTop">
+        <table class="table table-striped table-hover" id="tabelaDev"></table>
+    </div>
+    <h1>Games</h1>
+    <div class="tabelaTop">
+        <table class="table table-striped table-hover" id="tabelaGames"></table>
+    </div>
+    <h1>Inovação</h1>
+    <div class="tabelaTop">
+        <table class="table table-striped table-hover" id="tabelaInov"></table>
+    </div>
+    <h1>Achievements não completos</h1>
+    <div class="tabelaTop">
+        <table class="table table-striped table-hover" id="tabelaNComp"></table>
+    </div>
+</div>
+
+
 
 
 
@@ -11,19 +34,64 @@
 
 <%- contentFor("scripts") %>
 <script type="text/javascript">
-    var tabela = prepareDataTable("#tabela", {
+
+   
+    var tabelaBI = prepareDataTable("#tabelaBI", {
         order: [[0, "asc"]],
         deferRender: true,
         columns: [
             { title: "ID", "class": "col-min", data: "id_achievement" },
-            { title: "Nome", "class": "col-50", data: "nome_achievement" },
+            { title: "Nome", "class": "col-25", data: "nome_achievement" },
             { title: "Criterio Achievement", "class": "col-75", data: "criterio_achievement" },
 
         ],
-        data: <%-achiComp %>
+        data: <%-achiBI%>
+    })
+    var tabelaDev = prepareDataTable("#tabelaDev", {
+        order: [[0, "asc"]],
+        deferRender: true,
+        columns: [
+            { title: "ID", "class": "col-min", data: "id_achievement" },
+            { title: "Nome", "class": "col-25", data: "nome_achievement" },
+            { title: "Criterio Achievement", "class": "col-75", data: "criterio_achievement" },
+
+        ],
+        data: <%-achiDev%>
+    })
+    var tabelaGames = prepareDataTable("#tabelaGames", {
+        order: [[0, "asc"]],
+        deferRender: true,
+        columns: [
+            { title: "ID", "class": "col-min", data: "id_achievement" },
+            { title: "Nome", "class": "col-25", data: "nome_achievement" },
+            { title: "Criterio Achievement", "class": "col-75", data: "criterio_achievement" },
+
+        ],
+        data: <%-achiGames%>
+    })
+    var tabelaInov = prepareDataTable("#tabelaInov", {
+        order: [[0, "asc"]],
+        deferRender: true,
+        columns: [
+            { title: "ID", "class": "col-min", data: "id_achievement" },
+            { title: "Nome", "class": "col-25", data: "nome_achievement" },
+            { title: "Criterio Achievement", "class": "col-75", data: "criterio_achievement" },
+
+        ],
+        data: <%-achiInov%>
     })
 
+     var tabelaNComp = prepareDataTable("#tabelaNComp", {
+        order: [[0, "asc"]],
+        deferRender: true,
+        columns: [
+            { title: "ID", "class": "col-min", data: "id_achievement" },
+            { title: "Nome", "class": "col-25", data: "nome_achievement" },
+            { title: "Criterio Achievement", "class": "col-75", data: "criterio_achievement" },
 
+        ],
+        data: <%-achiNComp %>
+    })
     function homeClick() {
         window.location.replace("/")
     }

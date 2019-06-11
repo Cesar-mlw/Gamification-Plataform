@@ -1,0 +1,39 @@
+﻿<div>
+  <h1>Alunos</h1>
+  <div class="tabelaTop">
+    <table class="table table-striped table-hover" id="tabelaAlunos"></table>
+  </div>
+</div>
+
+<%- contentFor("scripts") %>
+<script type="text/javascript">
+  var tabelaAlunos = prepareDataTable("#tabelaAlunos", {
+    order: [[0, "asc"]],
+    deferRender: true,
+    columns: [
+      { title: "RA", "class": "col-min", data: "ra_usuario" },
+      { title: "Nome", "class": "col-min", data: "nome_usuario" },
+      { title: "Semestre", "class": "col-min", data: "semestre_usuario" },
+        {title: 'Pontos BI', "class":"col-min", data: 'pontos_bi'},
+        {title: 'Pontos Games', "class":"col-min", data: 'pontos_games'},
+        {title: 'Pontos DEV', "class":"col-min", data: 'pontos_dev'},
+    ],
+    data: <%-JSON.stringify(alu)%>
+  });
+
+  function clickLogout() {
+    $.ajax({
+      url: "http://localhost:3000/api/usuario/efetuarLogout",
+      method: "get",
+      contentType: "application/json",
+      success: function(data) {
+        if (data) {
+          window.location.replace("/admin/home");
+        } else {
+          alert("RA ou senha errados");
+        }
+      },
+      error: function(error) {}
+    });
+  }
+</script>

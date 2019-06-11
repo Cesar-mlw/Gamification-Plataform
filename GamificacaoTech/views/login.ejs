@@ -1,0 +1,46 @@
+﻿<div id="paper" class="paper">
+    <img  src="images/logo.png" style="width: 15vw; height: 15vh; margin-left: 6vw;">
+        <label class="emailForm" for="raInput">RA</label>
+        <input class="emailFormInput" type="text" id="raInput"/>
+        <label class="senhaForm" for="senhaInput">Senha </label>
+        <input class="senhaFormInput" type="text" id="senhaInput"/>
+
+        <input type="button" style="text-align: center; color: aliceblue;" value="Logar" class="loginSubmit" onclick="clickLogin()"/>
+</div>
+
+
+
+<%- contentFor("scripts") %>
+<script type="text/javascript">
+    function clickLogin() {
+        let ra = document.getElementById("raInput").value
+        let senha = document.getElementById("senhaInput").value
+        if (ra != '' && senha != '') {
+            const form = {
+                ra: ra,
+                senha: senha
+            }
+            $.ajax({
+                url: "http://localhost:3000/api/usuario/efetuarLogin",
+                method: "post",
+                data: JSON.stringify(form),
+                contentType: "application/json",
+                success: function (data) {
+                    if (data) {
+                        window.location.replace("/admin/home")
+                    }
+                    else {
+                        alert("RA ou senha errados")
+                    }
+                },
+                error: function (error) {
+
+                }
+            })
+        }
+        else {
+            alert("Preencha os campos!!")
+        }
+    }
+    
+</script>

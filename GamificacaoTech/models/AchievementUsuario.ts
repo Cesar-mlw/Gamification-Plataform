@@ -45,8 +45,7 @@ export = class AchievementUsuario {
         let lista: string = null
 
         await Sql.conectar(async (sql: Sql) => {
-            lista = JSON.stringify(await sql.query("select a.id_achievement, a.nome_achievement, a.criterio_achievement from achievement a, achievement_usuario u where fk_usuario_id = ? and a.id_achievement = u.fk_achievement_id", [ra]))
-            console.log(lista)
+            lista = JSON.stringify(await sql.query("select a.id_achievement, a.nome_achievement, a.criterio_achievement, a.area_achievement from achievement a, achievement_usuario u where fk_usuario_id = ? and a.id_achievement = u.fk_achievement_id", [ra]))
         })
 
         return lista
@@ -55,7 +54,7 @@ export = class AchievementUsuario {
         let lista: string = null
 
         await Sql.conectar(async (sql: Sql) => {
-            lista = JSON.stringify(await sql.query("select a.id_achievement, a.nome_achievement, a.criterio_achievement from achievement a, achievement_usuario u where fk_usuario_id != ? and a.id_achievement = u.fk_achievement_id", [ra]))
+            lista = JSON.stringify(await sql.query("select * from achievement a where a.id_achievement not in (select fk_achievement_id from achievement_usuario where fk_usuario_id = ?);", [ra]))
         })
 
         return lista

@@ -1,22 +1,74 @@
 ﻿<img class="background" src="images/background.png">
+<img src="images/logo_branco.png" style="width: 12vw; height: 12vh; position: relative; z-index: 4; margin-top: -185vh; margin-left: 80vw;">
     <div class="furniture">
         <img class="desk" src="images/desk.png">
-        <img class="computer" src="images/computer.png">
+        <img class="computer" src="images/pc.png">
         <img class="wardrobe" src="images/wardrobe.png">
         <img class="board" src="images/board.png">
         <img class="shelf" src="images/shelf.png">
+        <img class="window1" src="images/window1.png">
+        <img class="window2" src="images/window2.png">
+        <img class="mug" src="images/mug.png">
+        <img class="pen" src="images/pen.png">
+        <img class="poster" src="images/poster.png">
+        <img class="lava" src="images/lava.png">
     </div>
     <div id="menu">
-        <img class="photo" src="images/photo.png">
+        <div class="menu"></div>
         <button class="botoes" id="registro" onclick="registroRedirect()">Registro</button>
-        <button class="botoes" id="portfolio">Portfólio</button>
-        <button class="botoes" id="curriculo">Currículo</button>
+        <button class="botoes" id="portfolio" onclick="portifolioRedirect()">Portfólio</button>
+        <button class="botoes" id="curriculo" onclick="resumeRedirect()">Currículo</button>
         <button class="botoes" id="loja">Loja</button>
+                <div id="circle1"></div>
+                <div id="shadowring"></div>
+                <div id="circle2"></div>
+                <canvas height="200" width="200" id="counter">    
+            <script type="application/javascript">
+                var counter = document.getElementById('counter').getContext('2d');
+                var no = 0; // Starting Point
+                var pointToFill = 4.72;  //Point from where you want to fill the circle
+                var cw = counter.canvas.width;  //Return canvas width
+                var ch = counter.canvas.height; //Return canvas height
+                var diff;   // find the different between current value (no) and trageted value (100)
+                
+                function fillCounter(){
+                    diff = ((no/100) * Math.PI*2*10);
+                    counter.clearRect(0,0,cw,ch);   // Clear canvas every time when function is call
+                    counter.lineWidth = 15;     // size of stroke
+                    counter.fillStyle = '#fff';     // color that you want to fill in counter/circle
+                    counter.strokeStyle = '#dc143c';    // Stroke Color
+                    counter.textAlign = 'center';
+                    counter.font = "0.1px monospace";    //set font size and face
+                    counter.fillText(no+'%',100,110);       //fillText(text,x,y);
+                    counter.beginPath();
+                    counter.arc(100,100,90,pointToFill,diff/10+pointToFill);    //arc(x,y,radius,start,stop)
+                    counter.stroke();   // to fill stroke
+                    
+                    // now add condition
+                    
+                    if(no >= 78){
+                        clearTimeout(fill);     //fill is a variable that call the function fillcounter()
+                    }
+                    no++;
+                }
+                
+                //now call the function
+                
+                var fill = setInterval(fillCounter,50);     //call the fillCounter function after every 50MS
+            </script>
     </div>
 
 <%- contentFor("scripts")%>
 <script type="text/javascript">
     function registroRedirect() {
         window.location.replace("/formTest")
+    }
+    
+    function portifolioRedirect() {
+        window.location.replace("/portifolio")
+    }
+
+    function resumeRedirect() {
+        window.location.replace("/resume.html")
     }
 </script>

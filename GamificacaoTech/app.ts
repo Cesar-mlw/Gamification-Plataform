@@ -1,6 +1,7 @@
 ﻿import debug = require('debug');
 import express = require('express');
 import path = require('path');
+import cookieParser = require('cookie-parser')
 
 var app = express();
 
@@ -11,10 +12,13 @@ app.use(require("express-ejs-layouts"));
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
 
+app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(path.resolve('./public'))); 
 
 app.use('/', require("./routes/home"))
+app.use('/admin', require("./routes/admin"))
 app.use("/api/usuario", require("./routes/api/usuario"))
 app.use("/api/projeto", require("./routes/api/projeto"))
 app.use("/api/usuarioHabilidade", require("./routes/api/habilidadeUsuario"))

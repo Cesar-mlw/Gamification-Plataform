@@ -48,17 +48,23 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 //efetuar o Login
 
 router.post("/efetuarLogin", wrap(async (req: express.Request, res: express.Response) => {
-    let ra = req.body.ra
+    let ra = parseInt(req.body.ra)
     let senha = req.body.senha
 
     let resp = await Usuario.efetuarLogin(ra, senha)
 
     if (resp) {
-        res.json("LOGADO")
+        res.cookie("logged", true)
+        res.json(true)
     }
     else {
-        res.json("TA ERRADO SEU MERDA")
+        res.json(false)
     }
+}))
+
+router.get("/efetuarLogout", wrap(async (req: express.Request, res: express.Response) => {
+    res.clearCookie("logged")
+    res.redirect("/")
 }))
 
 

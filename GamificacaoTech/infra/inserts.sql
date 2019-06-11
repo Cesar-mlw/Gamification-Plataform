@@ -6,7 +6,10 @@ insert into area (nome_area) values("Inovação Tecnológica");
 insert into area (nome_area) values("misc");
 
 -- inserts table ACHIEVEMENTS
-insert into achievement (nome_achievement, criterio_achievement) values("ACHIEVEMENT TESTE", "DONE SOME WEIRD SHIT ON THE PLATFORM LIKE A BACKFLIP OR SOMETHING WHOLESOME");
+insert into achievement (nome_achievement, criterio_achievement, area_achievement) values("ACHIEVEMENT TESTE", "DONE SOME WEIRD SHIT ON THE PLATFORM LIKE A BACKFLIP OR SOMETHING WHOLESOME", 1);
+insert into achievement (nome_achievement, criterio_achievement, area_achievement) values("ACHIEVEMENT TESTE2", "DONE MORE WEIRD SHIT LIKE PET A DOG OR EAT A GOGURT", 3);
+insert into achievement (nome_achievement, criterio_achievement, area_achievement) values("ACHIEVEMENT TESTE3", "FAZER A PIADA DO BERIMBAU COM O MAURO", 2);
+insert into achievement (nome_achievement, criterio_achievement, area_achievement) values("ACHIEVEMENT TESTE4", "CUSPIR CÓDIGO ATÉ SEUS DEDOS NÃO AGUENTAREM MAIS. RADICAL!!!", 3);
 
 -- inserts ITEM
 insert into item (nome_item, top_item, bottom_item, left_item, right_item, img_url_item) values ("ITEM TESTE", 0, 0, 0, 0, "../images/PLACEHOLDER_PATH");

@@ -36,7 +36,22 @@
   <ItemGroup>
     <Content Include="infra\criacao_banco.sql" />
     <Content Include="infra\inserts.sql" />
+    <Content Include="public\css\admin-1.0.19.css" />
+    <Content Include="public\lib\bootstrap-datepicker\css\bootstrap-datepicker-1.0.0.min.css" />
+    <Content Include="public\lib\bootstrap\css\bootstrap-1.0.16.min.css" />
+    <Content Include="public\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="public\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="public\lib\data-tables\css\data-tables-1.0.0.css" />
+    <Content Include="public\lib\font-awesome\css\font-awesome-1.0.2.min.css" />
+    <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="public\lib\metis-menu\css\metis-menu-1.0.0.min.css" />
     <Content Include="views\achieve.ejs">
       <SubType>Code</SubType>
     </Content>
@@ -51,7 +66,17 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\home.ejs" />
+    <Content Include="views\homeAdmin.ejs">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\layoutAdmin.ejs" />
     <Content Include="views\layout.ejs">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\login.ejs">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\navbar.ejs">
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\requestTest.ejs">
@@ -94,6 +119,7 @@
     <TypeScriptCompile Include="models\UsuarioHabilidade.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="routes\admin.ts" />
     <TypeScriptCompile Include="routes\api\achievement.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -124,9 +150,27 @@
     <Folder Include="models\" />
     <Folder Include="public\js\" />
     <Folder Include="public\lib\" />
+    <Folder Include="public\lib\bootstrap-datepicker\" />
+    <Folder Include="public\lib\bootstrap-datepicker\css\" />
+    <Folder Include="public\lib\bootstrap-datepicker\js\" />
+    <Folder Include="public\lib\bootstrap\" />
+    <Folder Include="public\lib\bootstrap\css\" />
+    <Folder Include="public\lib\bootstrap\fonts\" />
+    <Folder Include="public\lib\bootstrap\js\" />
     <Folder Include="public\lib\data-tables\" />
     <Folder Include="public\lib\data-tables\css\" />
     <Folder Include="public\lib\data-tables\js\" />
+    <Folder Include="public\lib\font-awesome\" />
+    <Folder Include="public\lib\font-awesome\css\" />
+    <Folder Include="public\lib\font-awesome\fonts\" />
+    <Folder Include="public\lib\jquery-mask\" />
+    <Folder Include="public\lib\jquery-mask\js\" />
+    <Folder Include="public\lib\jquery-validate\" />
+    <Folder Include="public\lib\jquery-validate\js\" />
+    <Folder Include="public\lib\jquery\" />
+    <Folder Include="public\lib\metis-menu\" />
+    <Folder Include="public\lib\metis-menu\css\" />
+    <Folder Include="public\lib\metis-menu\js\" />
     <Folder Include="utils\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
@@ -138,7 +182,15 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="public\js\admin-1.0.3.js" />
+    <Compile Include="public\lib\bootstrap-datepicker\js\bootstrap-datepicker-1.0.0.min.js" />
+    <Compile Include="public\lib\bootstrap\js\bootstrap-1.0.0.min.js" />
     <Compile Include="public\lib\data-tables\js\data-tables-1.0.0.js" />
+    <Compile Include="public\lib\jquery-mask\js\jquery-mask-1.0.0.min.js" />
+    <Compile Include="public\lib\jquery-validate\js\jquery-validate-1.0.0.min.js" />
+    <Compile Include="public\lib\jquery-validate\js\messages_pt_BR.min.js" />
+    <Compile Include="public\lib\jquery\jquery-1.0.0.min.js" />
+    <Compile Include="public\lib\metis-menu\js\metis-menu-1.0.0.min.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

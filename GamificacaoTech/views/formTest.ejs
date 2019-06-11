@@ -1,75 +1,67 @@
-﻿<form>
-    <div class="input-group mb-3 firstSelect">
-        <div class="input-group-prepend">
-            <label class="input-group-text" for="selectCurPor">Onde isso será registrado?</label>
-        </div>
-      <select class="custom-select" id="selectCurPor" onchange="clc()">
-        <option selected>Choose...</option>
-        <option value="portifolio" >Portifólio</option>
-        <option value="curriculo" >Currículo</option>
-      </select>
-    </div>
-    <div id="formPortifolio" class="portifolioForm">
-                <div class="form-group">
-                        <label for="">Nome do projeto</label>
-                        <input type="text" class="form-control" placeholder="Nome do projeto" id="nome_projeto" name="">
-                </div>   
-                <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Descrição do Projeto</label>
-                        <textarea class="form-control" placeholder="Descrição do Projeto" id="descricao_projeto" rows="3"></textarea>
-                </div>
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Qual a área do projeto?</label>
-                </div>
-                <select class="form-control form-control-lg" id="area_projeto">
-                    <option>Escolha a área do projeto</option>
-                    <% for(let i = 0; i < ar.length; i++){ %>
-                        <option value="<%=ar[i].id_area%>"><%=ar[i].nome_area%></option>
-                    <% } %>
-
+﻿<div id="divSalvadora">
+    <form>
+        <div id="firstSelect" class="container">
+            <div class="fundoform">
+                <select class="custom-select" id="selectCurPor" onchange="clc()">
+                    <option selected>Onde isso será registrado?</option>
+                    <option value="portifolio">Portifólio</option>
+                    <option value="curriculo">Currículo</option>
                 </select>
-                <div class="input-group-prepend tipoProjetoSelect">
-                    <label class="input-group-text" for="inputGroupSelect01">Qual o tipo do projeto?</label>
+            </div>
+        </div>
+        <div id="formPortifolio" class="container">
+            <div class="coisinhas">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nome do projeto" id="nome_projeto" name="">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Descrição do Projeto" id="descricao_projeto"
+                    rows="3"></textarea>
+            </div>
+            <div class="input-group-prepend">
+            </div>
+            <select class="form-control form-control-lg" id="area_projeto">
+                <option>Escolha a área do projeto</option>
+            </select>
+            <div class="input-group-prepend tipoProjetoSelect">
+            </div>
+            <select class="custom-select" onchange="test()" id="tipo_projeto">
+                <option selected>Choose...</option>
+            </select>
+            <div class="form-group tipoProjetoSelect">
+                <input type="text" class="form-control" placeholder="Local do Projeto" id="local_projeto">
+            </div>
+            <div class="check">
+                <div class="wrap centre">
+                    <div class="checkbox">
+                        <input id="check" type="checkbox" name="check" value="check">
+                        <label for="check">Terminando o projeto?</label>
+                    </div>
                 </div>
-                <select class="custom-select" onchange="test()" id="tipo_projeto">
-                    <option selected>Choose...</option>
-                    <% for(let i = 0; i < tps.length; i++){%>
-                        <option value="<%=tps[i].id_tipo_projeto%>"><%= tps[i].nome_tipo_projeto%></option>
-                    <%}%>
-                </select> 
-                <div class="form-group tipoProjetoSelect">
-                        <label for="">Local do projeto</label>
-                        <input type="text" class="form-control" placeholder="Local do Projeto" id="local_projeto">
-                </div>
-
-                <div class="form-row checkboxFudida">
-                    <input type="checkbox" id="terminado_projeto" name="terminando">
-                    <label for="terminando_projeto" class="labelFudida">  Terminando o projeto?</label>
-                </div>
-                <div class="form-group">
-                   <button type="button" class="btn btn-primary mb-2" onclick="portEnviar()">Enviar</button>
-                </div>
-    </div>
-    <div id="formCurriculo" class="curriculoForm">
-        <select class="form-control form-control-lg" id="selectHabilidade">
-      
-            <option>Escolha sua habilidade</option>
-            <% for(let i = 0; i < hab.length; i++){ %>
-                <option value="<%=hab[i].id_habilidade%>"><%=hab[i].nome_habilidade%></option>
-            <% } %>
-
-          </select>
-          <select class="form-control selectArea" id="selectNivelProficiencia">
-            <option>Nivel de proficiencia</option>
-            <option value="1">Baixo</option>
-            <option value="2">Medio</option>
-            <option value="3">Avancado</option>
-          </select>
-        <div class="form-group selectArea">
-            <button type="button" class="btn btn-primary mb-2" onclick="currEnviar()">Enviar</button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btnenviar" onclick="portEnviar()">Enviar</button>
+            </div>
+        </div>
+        </div>
+        <div id="formCurriculo" class="container">
+        <div class="coisinhas">  
+            <select class="form-control form-control-lg" id="selectHabilidade">
+                <option>Escolha sua habilidade</option>
+            </select>
+            <select class="form-control selectArea" id="selectNivelProficiencia">
+                <option>Nivel de proficiencia</option>
+                <option value="1">Baixo</option>
+                <option value="2">Medio</option>
+                <option value="3">Avancado</option>
+            </select>
+            <div class="form-group">
+                    <button type="button" class="btnenviar" onclick="portEnviar()">Enviar</button>
+            </div>
         </div>
     </div>
-</form>
+    </form>
+</div>
 
 <%- contentFor("scripts") %>
 <script type="text/javascript">
@@ -100,12 +92,17 @@
             divPort.style.display = 'none'
             divCurr.style.display = 'block'
         }
+        else {
+            divPort.style.display = 'none'
+            divCurr.style.display = 'none'
+        }
+
 
     }
     function portEnviar() {
 
         let nome_projeto = document.getElementById("nome_projeto").value
-        let descricao_projeto = document.getElementById("descricao_projeto").value   
+        let descricao_projeto = document.getElementById("descricao_projeto").value
         let areaSelect = document.getElementById("area_projeto")
         let areaSelectedValue = areaSelect.options[areaSelect.selectedIndex].value //id_area
         console.log(areaSelectedValue)
@@ -161,17 +158,17 @@
         let selectNivelProficiencia = document.getElementById("selectNivelProficiencia")
         let selectNivelProficienciaValue = selectNivelProficiencia.options[selectNivelProficiencia.selectedIndex].value //id_area
 
-       const Http = new XMLHttpRequest();
+        const Http = new XMLHttpRequest();
         const form = {
             idUsuario: "11122233",
             idHabilidade: selectHabilidadeValue,
             idNivelProficiencia: selectNivelProficienciaValue,
         }
-        const url='http://localhost:1337/api/usuarioHabilidade/criar'
+        const url = 'http://localhost:1337/api/usuarioHabilidade/criar'
         Http.open("POST", url, false);
         Http.setRequestHeader("Content-Type", "application/json")
         Http.send(JSON.stringify(form));
         console.log(Http.response)
-        
+
     }
 </script>
