@@ -20,3 +20,5 @@ Full-stack
 
 
 Developed with love and care at GameLab-ESPM
+
+This project had been moved and finished at the following repository - https://github.com/Cesar-mlw/IDTech
